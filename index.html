@@ -456,7 +456,11 @@ function draw(){
  if(share)share.destroy();
  share=new Chart(document.getElementById('chShare'),{type:'doughnut',data:{labels:items.map(function(x){return x.n}),datasets:[{data:items.map(function(x){return x.v}),backgroundColor:items.map(function(x){return x.color}),borderColor:'#fff',borderWidth:2}]},
  options:{maintainAspectRatio:false,cutout:'58%',plugins:{title:{display:true,text:'Share of '+(sk==='s'?'spend':'results'),color:'#17212b',font:{weight:'700',size:13}},legend:{position:'bottom',labels:{boxWidth:9,boxHeight:9,font:{size:11}}},tooltip:{callbacks:{label:function(c){var v=c.raw;return c.label+': '+(sk==='s'?inr(v):v)+' ('+(v/tot*100).toFixed(1)+'%)'}}}}}});
- var note=[];
+  requestAnimationFrame(function(){bar.resize();share.resize()});
+ document.getElementById('exTable').innerHTML='<table><thead><tr><th>Campaign</th><th>Results</th><th>Spend</th><th>Cost / result</th></tr></thead><tbody>'+
+  rows.slice().sort(function(a,b){return b.r-a.r}).map(function(x){
+   return '<tr><td>'+x.n+'</td><td>'+x.r+'</td><td>'+(x.s===null?'In total':inr(x.s))+'</td><td>'+(x.c===null?'—':inr(x.c))+'</td></tr>'}).join('')+'</tbody></table>';
+  var note=[];
  if(skipped)note.push(skipped+' campaign'+(skipped>1?'s':'')+' not shown for this metric (no cost per result, or spend reported only within the total).');
  if(all)note.push('Adnova Digital counts instant-form leads; all other clients count WhatsApp conversations, so weighted cost is shown per client, not combined.');
  if(S.client==='milestone')note.push('Hiring ad set spend is included in the ₹2,980.46 total but not reported separately.');
