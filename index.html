@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mohit Avhad — Meta Ads, paid social and performance marketing portfolio featuring real campaign case studies across real estate, fitness, digital services and travel.">
+<title>Mohit Avhad | Meta Ads Portfolio</title>
+<style>
+:root{--ink:#17212b;--muted:#64717d;--line:#e4e9ee;--paper:#fff;--soft:#f5f7f9;--blue:#2457a6;--blue2:#eaf1fb;--green:#176b48;--max:1160px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font:15px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 42px));margin:auto}
+header{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{font-size:19px;font-weight:850;letter-spacing:-.05em}.brand span{color:var(--blue)}nav{display:flex;gap:24px;font-size:13px;font-weight:650;color:#52606b}
+nav a:hover{color:var(--blue)}.hero{padding:82px 0 70px;display:grid;grid-template-columns:1.4fr .75fr;gap:64px;align-items:center}
+.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--blue);font-weight:850}
+h1{font-size:clamp(42px,6vw,68px);line-height:1.04;letter-spacing:-.06em;margin:16px 0 20px}h1 em{font-style:normal;color:var(--blue)}
+.lead{font-size:18px;color:#56636e;max-width:690px}.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:27px}
+.btn{padding:11px 17px;border:1px solid var(--ink);border-radius:5px;font-size:13px;font-weight:750;display:inline-block}.btn.primary{background:var(--ink);color:white}
+.profile{background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:25px}.initials{width:58px;height:58px;border-radius:50%;background:var(--blue2);color:var(--blue);display:grid;place-items:center;font-weight:850;font-size:20px}
+.profile h3{margin:15px 0 2px}.profile p{margin:0;color:var(--muted);font-size:13px}.meta{border-top:1px solid var(--line);margin-top:18px;padding-top:15px;display:grid;gap:8px;font-size:13px}.meta b{color:#84909a;display:inline-block;width:82px}
+.section{padding:68px 0;border-top:1px solid var(--line)}.head{max-width:720px;margin-bottom:30px}h2{font-size:34px;line-height:1.15;letter-spacing:-.045em;margin:9px 0 10px}.head p{color:var(--muted);margin:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}.stat{border:1px solid var(--line);border-radius:7px;padding:17px}.stat small{display:block;color:var(--muted);font-size:11px}.stat strong{font-size:25px;letter-spacing:-.04em;display:block;margin-top:4px}.stat em{font-style:normal;color:var(--green)}
+.cases{display:grid;gap:22px}.case{border:1px solid var(--line);border-radius:9px;padding:26px}.casehead{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.pill{font-size:10px;text-transform:uppercase;letter-spacing:.09em;font-weight:850;color:var(--blue);background:var(--blue2);padding:5px 9px;border-radius:3px}
+.case h3{font-size:24px;letter-spacing:-.035em;margin:13px 0 5px}.sub{color:var(--muted);margin:0;font-size:14px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:21px 0}.metric{background:var(--soft);padding:13px;border-radius:5px}.metric small{display:block;color:var(--muted);font-size:11px}.metric b{font-size:20px;letter-spacing:-.03em}
+.twocol{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;margin-top:18px}.case ul{padding-left:19px;color:#53616c;font-size:13px;margin:8px 0}.case li{margin:4px 0}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0 0}th,td{padding:10px 8px;text-align:left;border-bottom:1px solid var(--line)}th{color:#74808a;font-size:11px;text-transform:uppercase;letter-spacing:.06em}.note{padding:13px 16px;background:var(--soft);border-left:3px solid var(--blue);font-size:12px;color:#56636e;margin-top:17px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}figure{margin:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff}figure img{width:100%;height:250px;object-fit:contain;background:#f4f6f8;display:block}figcaption{padding:10px 12px;font-size:12px;color:#52606b}
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.skill{border:1px solid var(--line);padding:15px;border-radius:6px;font-size:13px;font-weight:750}.skill small{display:block;color:var(--muted);font-weight:400;margin-top:3px}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.step{border-top:2px solid var(--ink);padding-top:13px}.step b{color:var(--blue);font-size:11px}.step h3{font-size:16px;margin:7px 0}.step p{font-size:13px;color:var(--muted);margin:0}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:50px}.about p{color:#56636e}.contact{background:var(--ink);color:white;padding:55px 0}.contact .eyebrow{color:#a8c7f3}.contact p{color:#c5cdd4}.contact .btn{border-color:white;color:white}.contact .btn.primary{background:white;color:var(--ink)}footer{padding:22px 0;color:#7c8790;font-size:12px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:800px){.hero{grid-template-columns:1fr;gap:28px;padding:58px 0}.stats,.metrics{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}.skills,.process{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr;gap:15px}nav{gap:12px}nav a:nth-child(3),nav a:nth-child(4){display:none}}
+@media(max-width:560px){.wrap{width:calc(100% - 30px)}header{height:62px}nav{font-size:11px}.section{padding:52px 0}h2{font-size:29px}.case{padding:18px}.stats,.metrics,.skills,.process,.gallery{grid-template-columns:1fr}figure img{height:auto;max-height:420px}.lead{font-size:16px}}
+/* ---- Interactive dashboard ---- */
+.dash{background:var(--soft)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px}
+.kpi small{display:block;color:var(--muted);font-size:12px}.kpi strong{display:block;font-size:30px;letter-spacing:-.045em;margin-top:4px;font-variant-numeric:tabular-nums}
+.kpi span{display:block;font-size:11px;color:#84909a;margin-top:2px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px}
+.panel h3{margin:0 0 3px;font-size:17px;letter-spacing:-.025em}.panel .sub{font-size:12.5px;margin-bottom:12px}
+.cbox{position:relative;height:300px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:#52606b;margin:10px 0 0}.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.insight{margin-top:12px;padding:11px 14px;background:var(--blue2);border-radius:6px;font-size:13px;color:#27415f}
+.explorer{margin-top:18px}
+.controls{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;margin-bottom:14px}
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.chips button,.tog button{font:inherit;font-size:12.5px;font-weight:650;padding:7px 12px;border:1px solid var(--line);background:#fff;color:#44525e;border-radius:999px;cursor:pointer}
+.chips button:hover,.tog button:hover{border-color:var(--blue);color:var(--blue)}
+.chips button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.tog{display:flex;gap:0;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#fff}
+.tog button{border:0;border-radius:0}.tog button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.chips button:focus-visible,.tog button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.mini{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.mini div{background:var(--soft);border-radius:6px;padding:11px 13px}.mini small{display:block;color:var(--muted);font-size:11px}.mini b{font-size:17px;letter-spacing:-.03em}
+.split{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
+.fallback{display:none;padding:14px;background:#fff6e5;border:1px solid #f0d9a8;border-radius:6px;font-size:13px}
+.filters{margin:0 0 22px}
+.case[hidden]{display:none}
+figure img{cursor:zoom-in}
+.lb{position:fixed;inset:0;background:rgba(15,22,30,.88);display:none;align-items:center;justify-content:center;z-index:50;padding:24px}
+.lb.on{display:flex}.lb img{max-width:100%;max-height:88vh;border-radius:6px;background:#fff}
+.lb button{position:absolute;top:16px;right:18px;font:inherit;font-size:14px;font-weight:700;background:#fff;border:0;border-radius:6px;padding:8px 13px;cursor:pointer}
+.lb p{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#dfe6ec;font-size:13px;margin:0}
+@media(max-width:800px){.kpis,.mini{grid-template-columns:repeat(2,1fr)}.grid2,.split{grid-template-columns:1fr}.cbox{height:280px}}
+@media(max-width:560px){.kpi strong{font-size:25px}}
+</style>
+</head>
+<body>
+<header class="wrap"><a class="brand" href="#home">MOHIT AVHAD<span>.</span></a><nav><a href="#dashboard">Dashboard</a><a href="#work">Case studies</a><a href="#skills">Skills</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#contact">Contact</a></nav></header>
+<main>
+<section class="wrap hero" id="home">
+<div><div class="eyebrow">Meta Ads · Paid Social · Lead Generation</div><h1>Turning campaign data into <em>business action.</em></h1>
+<p class="lead">I'm Mohit Avhad, a hands-on Meta Ads campaign manager with experience across real estate, fitness, digital services and travel. I manage campaign setup, audience targeting, creative execution, optimisation and performance analysis.</p>
+<div class="actions"><a class="btn primary" href="#work">Explore case studies</a><a class="btn" href="#contact">Get in touch</a></div></div>
+<aside class="profile"><div class="initials">MA</div><h3>Mohit Avhad</h3><p>Meta Ads & Performance Marketing</p><div class="meta"><div><b>Based</b> Riga, Latvia</div><div><b>Focus</b> Meta Ads Manager</div><div><b>Experience</b> Campaign management & client support</div><div><b>LinkedIn</b> <a href="https://www.linkedin.com/in/mohit-avhad/" target="_blank" rel="noreferrer">View profile ↗</a></div></div></aside>
+</section>
+
+<section class="section dash" id="dashboard"><div class="wrap">
+<div class="head"><div class="eyebrow">Results dashboard</div><h2>The numbers behind the campaigns.</h2><p>Every figure here comes from the case studies below. Hover or tap any chart for details, and use the explorer to compare campaigns by client.</p></div>
+<div class="kpis" id="kpis"></div>
+<div class="grid2">
+<div class="panel"><h3>Cost per result by client</h3><p class="sub">Weighted average: total spend ÷ total results. Lower is better.</p><div class="cbox"><canvas id="chClient" role="img" aria-label="Bar chart of weighted cost per result by client"></canvas></div><div class="legend"><span><i style="background:#2457a6"></i>WhatsApp conversation</span><span><i style="background:#b45309"></i>Instant-form lead</span></div></div>
+<div class="panel"><h3>Spend vs results, every campaign</h3><p class="sub">Each dot is one campaign. Higher and further left means more results for less spend.</p><div class="cbox"><canvas id="chScatter" role="img" aria-label="Scatter chart of spend against results for each campaign"></canvas></div><div class="insight">Spend didn't decide the outcome. Shree Ashtavinayak's first Sri Lanka campaign spent ₹1,980 for 27 conversations; the second spent ₹1,171 for 84.</div></div>
+</div>
+<div class="panel explorer"><h3>Campaign explorer</h3><p class="sub">Pick a client, then switch the metric. Milestone Fitness's 69 post engagements are left out because they are a different result type.</p>
+<div class="controls"><div class="chips" id="clientChips" role="group" aria-label="Choose client"></div><div class="tog" id="metricTog" role="group" aria-label="Choose metric"><button data-m="cost" aria-pressed="true">Cost per result</button><button data-m="results" aria-pressed="false">Results</button><button data-m="spend" aria-pressed="false">Spend</button></div></div>
+<div class="mini" id="mini"></div>
+<div class="split"><div class="cbox" id="barWrap"><canvas id="chBar" role="img" aria-label="Bar chart of campaigns for the selected client"></canvas></div><div class="cbox"><canvas id="chShare" role="img" aria-label="Doughnut chart showing share by campaign"></canvas></div></div>
+<p class="sub" id="exNote" style="margin-top:12px"></p></div>
+<div class="fallback" id="chartFallback">Charts couldn't load. The full numbers are in the case studies below.</div>
+</div></section>
+
+<section class="section" id="work"><div class="wrap">
+<div class="head"><div class="eyebrow">Selected campaign experience</div><h2>Campaigns across multiple business categories.</h2><p>Case studies below use the campaign reports and business outcomes shared for this portfolio. Metrics are labelled by result type; messaging conversations, instant-form leads and post engagements are not treated as interchangeable.</p></div>
+
+<div class="cases">
+<article class="case">
+<div class="casehead"><span class="pill">Real estate · WhatsApp lead generation</span><span class="sub">01 / Suvini Group – Kulswamini Homes</span></div>
+<h3>Local property enquiries and site visits</h3><p class="sub">Two campaigns for the same real estate client, targeting local buyers around Kalyan, Bhiwandi, Dombivli, Ambernath and nearby areas.</p>
+<div class="stats">
+<div class="stat"><small>Combined ad spend</small><strong>₹24,762.18</strong></div><div class="stat"><small>Messaging conversations</small><strong>233</strong></div><div class="stat"><small>Weighted cost / conversation</small><strong>₹106.28</strong></div><div class="stat"><small>Verified site visits</small><strong><em>30</em></strong></div>
+</div>
+<div class="twocol"><div><div class="eyebrow">Campaign breakdown</div><table><thead><tr><th>Campaign</th><th>Conversations</th><th>Spend</th><th>Cost/result</th></tr></thead><tbody>
+<tr><td>Kulswamini Traffic</td><td>133</td><td>₹15,214.89</td><td>₹114.40</td></tr><tr><td>Rutu Traffic</td><td>100</td><td>₹9,547.29</td><td>₹95.47</td></tr></tbody></table>
+<div class="eyebrow" style="margin-top:20px">Strategy & execution</div><ul><li>Local geographic targeting across Kalyan-region catchments, with selected state exclusions.</li><li>Housing special ad category was selected in the Kulswamini ad set.</li><li>Age range 25–65+ and all genders; real-estate interest targeting included apartment, condominium and first-time-buyer interests.</li><li>WhatsApp messaging objective, property-led offers and seasonal Diwali creative replacement.</li><li>Compared image and reel ad performance: one image ad generated 79 conversations at ₹82.06; one reel generated 39 at ₹123.66.</li></ul></div>
+<div><div class="eyebrow">Business outcome & learnings</div><ul><li>30 property site visits were reported for Kulswamini. Based on 133 conversations, the indicative conversation-to-visit rate is 22.56% and cost per visit is ₹507.16.</li><li>Rutu's downstream site visits and sales were not available.</li><li>Image creative had a lower cost per conversation than the reported reel during the measured period; this is a performance comparison, not a controlled A/B test.</li><li>Audience breakdowns showed more messaging conversations from men in the displayed reports; lead quality by gender was not available.</li></ul><div class="note">The 30 site visits are attributed to Kulswamini only, not to the combined 233 conversations. No property bookings or sales are claimed.</div></div></div>
+<div class="gallery"><figure><img src="images/creative-01.jpg" alt="Kulswamini Homes Diwali property advertisement"><figcaption>Kulswamini Homes – Diwali creative used after replacing the original version.</figcaption></figure><figure><img src="images/creative-02.jpg" alt="Kulswamini Homes property creative"><figcaption>Property offer: 1 BHK and 2 BHK homes in Khadakpada, Kalyan West.</figcaption></figure><figure><img src="images/creative-03.jpg" alt="Kulswamini campaign creative"><figcaption>Creative execution – local-language offer, pricing and WhatsApp/site-visit CTA.</figcaption></figure></div>
+</article>
+
+<article class="case">
+<div class="casehead"><span class="pill">Fitness · Local engagement & messaging</span><span class="sub">02 / Milestone Fitness Center</span></div>
+<h3>Promotional campaigns and recruitment advertising</h3><p class="sub">Local campaigns for a fitness centre in Gandhari, Kalyan West, using seasonal membership offers, engagement and WhatsApp messaging.</p>
+<div class="stats">
+<div class="stat"><small>Total ad spend</small><strong>₹2,980.46</strong></div><div class="stat"><small>Messaging conversations*</small><strong>50</strong></div><div class="stat"><small>Post engagements</small><strong>69</strong></div><div class="stat"><small>Reported memberships sold</small><strong><em>1–10</em></strong></div>
+</div>
+<div class="twocol"><div><div class="eyebrow">Campaign breakdown</div><table><thead><tr><th>Campaign</th><th>Result type</th><th>Results</th><th>Spend</th><th>Cost/result</th></tr></thead><tbody>
+<tr><td>Milestone (June)</td><td>Messaging</td><td>21</td><td>₹1,235.99</td><td>₹58.86</td></tr><tr><td>Diwali engagement</td><td>Messaging</td><td>9</td><td>₹930.31</td><td>₹103.37</td></tr><tr><td>15 August</td><td>Messaging</td><td>6</td><td>₹302.91</td><td>₹50.49</td></tr><tr><td>2nd engagement</td><td>Messaging</td><td>3</td><td>₹255.96</td><td>₹85.32</td></tr><tr><td>Hiring ad set</td><td>WhatsApp messages</td><td>10</td><td>Included in total</td><td>₹14.24</td></tr><tr><td>New traffic</td><td>Messaging</td><td>1</td><td>₹112.94</td><td>₹112.94</td></tr><tr><td>Hiring campaign</td><td>Post engagements</td><td>69</td><td>₹142.35</td><td>₹2.06</td></tr></tbody></table></div>
+<div><div class="eyebrow">Execution & outcomes</div><ul><li>Created and promoted seasonal membership offers, including Diwali and Independence Day campaigns.</li><li>Promoted gym services such as weight training, cardio, functional training and personal training.</li><li>Ran a separate recruitment-focused campaign for certified fitness trainers.</li><li>Reported membership sales range: 1–10; exact count and campaign-level attribution were not supplied.</li><li>Hiring campaign generated 10 WhatsApp conversations at the ad-set level, alongside 69 post engagements at campaign level.</li></ul><div class="note">Messaging conversations and post engagements are different result types. The 50 messaging total is the sum of reported messaging results across the listed campaigns/ad set; the hiring campaign's 69 engagements are shown separately. Membership sales are user-reported and not independently reconciled to individual campaigns.</div></div></div>
+<div class="gallery"><figure><img src="images/creative-04.jpg" alt="Milestone Fitness Diwali offer poster"><figcaption>Diwali membership offer creative.</figcaption></figure><figure><img src="images/creative-05.jpg" alt="Milestone Fitness Independence Day offer"><figcaption>Independence Day promotional creative.</figcaption></figure><figure><img src="images/creative-06.jpg" alt="Milestone Fitness trainer recruitment poster"><figcaption>Certified fitness trainer recruitment creative.</figcaption></figure></div>
+</article>
+
+<article class="case">
+<div class="casehead"><span class="pill">Digital services · Instant lead forms</span><span class="sub">03 / Adnova Digital – Own agency</span></div>
+<h3>Lead generation for a digital marketing agency</h3><p class="sub">Managed Meta lead-form campaigns promoting Adnova Digital's marketing services and agency offering.</p>
+<div class="stats">
+<div class="stat"><small>Total ad spend</small><strong>₹2,112.37</strong></div><div class="stat"><small>Instant-form leads</small><strong>18</strong></div><div class="stat"><small>Weighted cost / lead</small><strong>₹117.35</strong></div><div class="stat"><small>Reach</small><strong>5,502</strong></div>
+</div>
+<div class="twocol"><div><div class="eyebrow">Campaign breakdown</div><table><thead><tr><th>Campaign</th><th>Leads</th><th>Spend</th><th>CPL</th></tr></thead><tbody>
+<tr><td>Adnova Leads (Aug)</td><td>9</td><td>₹1,030.20</td><td>₹114.47</td></tr><tr><td>22 Sep Leads</td><td>1</td><td>₹441.06</td><td>₹441.06</td></tr><tr><td>Ad Leads (Aug)</td><td>4</td><td>₹385.07</td><td>₹96.27</td></tr><tr><td>New Leads (Sep)</td><td>4</td><td>₹256.04</td><td>₹64.01</td></tr></tbody></table><div class="note">18 leads were reported in Ads Manager. Some were qualified; the exact qualified-lead count was not tracked or provided.</div></div>
+<div><div class="eyebrow">Role & responsibilities</div><ul><li>Managed the campaigns end-to-end for my own agency.</li><li>Campaign setup, objective selection, budgets and delivery monitoring.</li><li>Lead-form campaign management and CPL analysis.</li><li>Creative direction and promotional messaging for agency services.</li><li>Reviewed results to identify lower-cost lead-generation opportunities.</li></ul><p class="sub">Best observed campaign: 4 leads at ₹64.01 each (9–27 September 2026).</p></div></div>
+<div class="gallery"><figure><img src="images/creative-07.jpg" alt="Adnova Digital agency promotion creative"><figcaption>Adnova Digital agency promotion creative.</figcaption></figure><figure><img src="images/creative-08.jpg" alt="Adnova Digital travel agency Meta Ads service creative"><figcaption>Travel-agency service offer creative. Promotional claims in the artwork are not treated as verified campaign results.</figcaption></figure></div>
+</article>
+
+<article class="case">
+<div class="casehead"><span class="pill">Travel & tourism · WhatsApp lead generation</span><span class="sub">04 / Shree Ashtavinayak Travels – Kalyan</span></div>
+<h3>Generating travel enquiries across domestic and international tour packages</h3>
+<p class="sub">Multiple destination campaigns managed for one travel agency, including pilgrimage tours and international group holidays. All six campaigns in the supplied report belong to Shree Ashtavinayak Travels.</p>
+<div class="stats">
+<div class="stat"><small>Total ad spend</small><strong>₹7,270.56</strong></div>
+<div class="stat"><small>WhatsApp conversations</small><strong>263</strong></div>
+<div class="stat"><small>Weighted cost / conversation</small><strong>₹27.64</strong></div>
+<div class="stat"><small>Reported bookings</small><strong><em>11–30</em></strong></div>
+</div>
+<div class="twocol">
+<div>
+<div class="eyebrow">Campaign breakdown</div>
+<table><thead><tr><th>Campaign</th><th>Conversations</th><th>Spend</th><th>Cost/result</th></tr></thead><tbody>
+<tr><td>Sri Lanka</td><td>27</td><td>₹1,979.53</td><td>₹73.32</td></tr>
+<tr><td>Bhutan</td><td>92</td><td>₹1,526.44</td><td>₹16.59</td></tr>
+<tr><td>Trishali Yatra</td><td>37</td><td>₹1,522.23</td><td>₹41.14</td></tr>
+<tr><td>Sri Lanka 2</td><td>84</td><td>₹1,170.52</td><td>₹13.93</td></tr>
+<tr><td>Purvanchal</td><td>23</td><td>₹955.58</td><td>₹41.55</td></tr>
+<tr><td>Bhutan short test</td><td>0</td><td>₹116.26</td><td>—</td></tr>
+</tbody></table>
+<div class="eyebrow" style="margin-top:20px">Strategy & execution</div>
+<ul>
+<li>Managed multiple WhatsApp messaging campaigns for different tour products and destinations.</li>
+<li>Promoted domestic pilgrimage travel and international group tours, including Sri Lanka and Bhutan.</li>
+<li>Developed destination- and package-led creative messaging for a regional Marathi-speaking audience.</li>
+<li>Managed campaign setup, audience targeting, budgets, creative execution, monitoring and optimisation end-to-end.</li>
+<li>Compared campaign-level cost per conversation to identify stronger-performing tour offers.</li>
+</ul>
+</div>
+<div>
+<div class="eyebrow">Performance insights & outcomes</div>
+<ul>
+<li>Bhutan campaign generated 92 conversations at ₹16.59 each.</li>
+<li>Second Sri Lanka campaign generated 84 conversations at ₹13.93 each.</li>
+<li>Those two campaigns contributed 176 of 263 conversations, approximately 66.9% of the total.</li>
+<li>Client-reported bookings: 11–30 across the campaign activity; exact count and campaign-level booking attribution were not available.</li>
+</ul>
+<div class="note">Using the reported booking range, the indicative conversation-to-booking rate is approximately 4.2%–11.4%. Estimated advertising cost per booking is approximately ₹242–₹661, using total spend divided by the reported booking range. These are directional estimates, not independently reconciled attribution.</div>
+</div>
+</div>
+<div class="gallery"><figure><img src="images/creative-09.jpg" alt="Trishali Yatra – pilgrimage tour creative"><figcaption>Trishali Yatra – pilgrimage tour creative</figcaption></figure><figure><img src="images/creative-10.jpg" alt="Sri Lanka group tour creative"><figcaption>Sri Lanka group tour creative</figcaption></figure><figure><img src="images/creative-11.jpg" alt="Sri Lanka destination-focused creative"><figcaption>Sri Lanka destination-focused creative</figcaption></figure><figure><img src="images/creative-12.jpg" alt="Bhutan tour promotional creative"><figcaption>Bhutan tour promotional creative</figcaption></figure><figure><img src="images/creative-13.jpg" alt="Bhutan group travel creative"><figcaption>Bhutan group travel creative</figcaption></figure></div>
+</article>
+
+
+<article class="case">
+<div class="casehead"><span class="pill">Travel & tourism · WhatsApp lead generation</span><span class="sub">05 / Pranjali Tours (Sangh Sewa Holidays)</span></div>
+<h3>Driving WhatsApp enquiries for domestic and international group tours</h3>
+<p class="sub">Six engagement campaigns promoting Thailand, Buddha Darshan, Bhutan and other travel offers. The supplied Ads Manager report covers 8 July–2 November 2026; individual campaign delivery dates vary.</p>
+<div class="stats">
+<div class="stat"><small>Total ad spend</small><strong>₹4,831.66</strong></div>
+<div class="stat"><small>WhatsApp conversations</small><strong>384</strong></div>
+<div class="stat"><small>Weighted cost / conversation</small><strong>₹12.58</strong></div>
+<div class="stat"><small>Reported bookings</small><strong><em>11–30</em></strong></div>
+</div>
+<div class="twocol">
+<div>
+<div class="eyebrow">Campaign breakdown</div>
+<table><thead><tr><th>Campaign</th><th>Conversations</th><th>Spend</th><th>Cost/result</th></tr></thead><tbody>
+<tr><td>Mega Engagement</td><td>260</td><td>₹2,565.88</td><td>₹9.87</td></tr>
+<tr><td>Buddha Engagement</td><td>99</td><td>₹1,186.43</td><td>₹11.98</td></tr>
+<tr><td>Bhutan Engagement</td><td>12</td><td>₹604.43</td><td>₹50.37</td></tr>
+<tr><td>13 August Engagement</td><td>2</td><td>₹202.84</td><td>₹101.42</td></tr>
+<tr><td>16 August Engagement</td><td>10</td><td>₹157.01</td><td>₹15.70</td></tr>
+<tr><td>17 August Engagement</td><td>1</td><td>₹115.07</td><td>₹115.07</td></tr>
+</tbody></table>
+<div class="eyebrow" style="margin-top:20px">Strategy & execution</div>
+<ul>
+<li>Managed all six WhatsApp messaging campaigns end-to-end.</li>
+<li>Promoted domestic religious tours and international group packages, including Thailand and Bhutan.</li>
+<li>Used Marathi-language, destination-led creatives and package-focused messaging.</li>
+<li>Handled campaign strategy, setup, audience targeting, creative management, budget allocation, monitoring and optimisation.</li>
+<li>Reviewed campaign-level cost per conversation to compare offers and identify stronger-performing campaigns.</li>
+</ul>
+</div>
+<div>
+<div class="eyebrow">Performance insights & outcomes</div>
+<ul>
+<li>Mega Engagement generated 260 conversations at ₹9.87 each.</li>
+<li>Buddha Engagement generated 99 conversations at ₹11.98 each.</li>
+<li>The two largest campaigns contributed 359 of 384 conversations (approximately 93.5%).</li>
+<li>Client-reported bookings: 11–30; exact booking count and campaign-level attribution were not supplied.</li>
+</ul>
+<div class="note">The reported booking range implies an indicative conversation-to-booking ratio of approximately 2.9%–7.8%. Estimated advertising cost per booking is approximately ₹161–₹439, calculated from total spend divided by the reported booking range. These are directional estimates, not independently reconciled attribution.</div>
+</div>
+</div>
+<div class="gallery"><figure><img src="images/creative-14.jpg" alt="Thailand group tour – Pattaya and Bangkok"><figcaption>Thailand group tour – Pattaya and Bangkok</figcaption></figure><figure><img src="images/creative-15.jpg" alt="Buddha Darshan pilgrimage tour"><figcaption>Buddha Darshan pilgrimage tour</figcaption></figure><figure><img src="images/creative-16.jpg" alt="Thailand group tour – alternate creative"><figcaption>Thailand group tour – alternate creative</figcaption></figure><figure><img src="images/creative-17.jpg" alt="Bhutan group tour"><figcaption>Bhutan group tour</figcaption></figure></div>
+</article>
+
+
+<article class="case">
+<div class="casehead"><span class="pill">Travel & tourism · WhatsApp lead generation</span><span class="sub">06 / Destiny Tours · Own agency</span></div>
+<h3>Generating WhatsApp enquiries for customised domestic and international tours</h3>
+<p class="sub">Four engagement campaigns promoting customised December departures and destination packages, including Mussoorie–Nainital–Jim Corbett, Rajasthan, Himachal and Bhutan. The supplied Ads Manager screenshot shows four campaign rows; reporting dates and exact campaign attribution should be confirmed before publication.</p>
+<div class="stats">
+<div class="stat"><small>WhatsApp conversations</small><strong>101</strong></div>
+<div class="stat"><small>Total ad spend</small><strong>₹6,523.97</strong></div>
+<div class="stat"><small>Average cost / conversation</small><strong>₹64.59</strong></div>
+<div class="stat"><small>Impressions</small><strong>39,191</strong></div>
+</div>
+<div class="twocol">
+<div>
+<div class="eyebrow">Campaign breakdown</div>
+<table><thead><tr><th>Campaign</th><th>Conversations</th><th>Spend</th><th>Cost/result</th></tr></thead><tbody>
+<tr><td>First engagement campaign</td><td>24</td><td>₹1,857.48</td><td>₹77.40</td></tr>
+<tr><td>December customised tours</td><td>26</td><td>₹1,770.25</td><td>₹68.09</td></tr>
+<tr><td>13 September engagement</td><td>39</td><td>₹1,766.33</td><td>₹45.29</td></tr>
+<tr><td>New engagement campaign</td><td>12</td><td>₹1,129.91</td><td>₹94.16</td></tr>
+</tbody></table>
+<div class="eyebrow" style="margin-top:20px">Strategy & execution</div>
+<ul>
+<li>Managed WhatsApp-focused Meta engagement campaigns for Destiny Tours.</li>
+<li>Promoted customised domestic itineraries and an international Bhutan group tour.</li>
+<li>Developed destination-led creatives with itinerary highlights, package inclusions, group pricing and WhatsApp calls to action.</li>
+<li>Managed campaign setup, audience targeting, creative deployment, budget allocation, monitoring and optimisation.</li>
+<li>Compared campaign-level cost per conversation to assess which destination offers generated enquiries more efficiently.</li>
+</ul>
+</div>
+<div>
+<div class="eyebrow">Performance insights</div>
+<ul>
+<li>The 13 September engagement campaign delivered the highest conversation volume: 39 at ₹45.29 each.</li>
+<li>The first engagement campaign generated 24 conversations at ₹77.40 each.</li>
+<li>The December customised tours campaign generated 26 conversations at ₹68.09 each.</li>
+<li>The new engagement campaign generated 12 conversations at ₹94.16 each.</li>
+<li>13 bookings were reported from the campaign activity, equal to an indicative 12.9% conversation-to-booking rate (13 ÷ 101).</li>
+<li>At the reported campaign spend, the indicative advertising cost per reported booking was ₹501.84 (₹6,523.97 ÷ 13).</li>
+<li>Booking revenue and package sales value were not tracked as part of my marketing role, so no revenue or ROAS claim is made.</li>
+</ul>
+<div class="note">Campaign period: August–October 2026. Target locations: Mumbai, Thane, Kalyan, Nashik, Pune and Sambhaji Nagar. The 101 results are WhatsApp messaging conversations started; the 13 bookings are client-reported business outcomes. Booking revenue was not tracked by me because my scope was marketing management. Cost per reported booking is a directional calculation, not independently reconciled attribution.</div>
+</div>
+</div>
+<div class="gallery"><figure><img src="images/creative-18.jpg" alt="Mussoorie, Nainital & Jim Corbett customised tour"><figcaption>Mussoorie, Nainital & Jim Corbett customised tour</figcaption></figure><figure><img src="images/creative-19.jpg" alt="Rajasthan customised tour"><figcaption>Rajasthan customised tour</figcaption></figure><figure><img src="images/creative-20.jpg" alt="Himachal customised tour"><figcaption>Himachal customised tour</figcaption></figure><figure><img src="images/creative-21.jpg" alt="Bhutan group tour"><figcaption>Bhutan group tour</figcaption></figure></div>
+</article>
+
+
+<article class="case">
+  <div class="casehead">
+    <span class="pill">Travel &amp; tourism · WhatsApp lead generation</span>
+    <span class="sub">07 / Shree Ashtavinayak Travels</span>
+  </div>
+  <h3>Filling a 6-seat Sri Lanka group tour through WhatsApp enquiries</h3>
+  <p class="sub">A Marathi-language destination campaign promoting a 6-night, 7-day Sri Lanka group tour. The campaign generated 18 messaging conversations in the reported period, and the client confirmed that all six seats were filled.</p>
+  <div class="metrics">
+    <div class="metric"><small>Messaging conversations</small><b>18</b></div>
+    <div class="metric"><small>Ad spend</small><b>₹201.07</b></div>
+    <div class="metric"><small>Cost / conversation</small><b>₹11.17</b></div>
+    <div class="metric"><small>Reach</small><b>2,207</b></div>
+    <div class="metric"><small>Impressions</small><b>2,561</b></div>
+    <div class="metric"><small>Frequency</small><b>1.16</b></div>
+    <div class="metric"><small>Ad-attributed confirmed customers</small><b>4</b></div>
+    <div class="metric"><small>Tour capacity filled</small><b>6 / 6</b></div>
+  </div>
+  <div class="twocol">
+    <div>
+      <div class="eyebrow">Strategy &amp; creative execution</div>
+      <ul>
+        <li>Promoted a 6-night, 7-day Sri Lanka group tour to generate direct WhatsApp enquiries.</li>
+        <li>Used Marathi-language, destination-led creative featuring Sigiriya, Kandy, Nuwara Eliya, Ella, Bentota and Colombo.</li>
+        <li>Highlighted travel dates, itinerary, package inclusions and contact details in the poster.</li>
+        <li>Monitored campaign delivery, messaging conversations, reach, impressions and cost per result.</li>
+      </ul>
+      <div class="eyebrow" style="margin-top:18px">Campaign results</div>
+      <table><tbody>
+        <tr><th>Campaign period</th><td>5–12 November 2026</td></tr>
+        <tr><th>Messaging conversations</th><td>18</td></tr>
+        <tr><th>Amount spent</th><td>₹201.07</td></tr>
+        <tr><th>Cost per conversation</th><td>₹11.17</td></tr>
+        <tr><th>Reach / impressions</th><td>2,207 / 2,561</td></tr>
+        <tr><th>Frequency</th><td>1.16</td></tr>
+      </tbody></table>
+    </div>
+    <div>
+      <div class="eyebrow">Client-reported business outcome</div>
+      <ul>
+        <li>4 confirmed customers were reported by the client from campaign-generated enquiries.</li>
+        <li>2 additional customers came through the client's connections/referrals.</li>
+        <li>All 6 available tour seats were confirmed filled, after which the campaign was stopped.</li>
+      </ul>
+      <div class="note">Calculated from reported figures: cost per ad-attributed confirmed customer ≈ ₹50.27 (₹201.07 ÷ 4); ad lead-to-customer conversion ≈ 22.22% (4 ÷ 18). The two referral bookings are reported separately and are not attributed to the ads.</div>
+      <div class="note">Booking outcomes are client-reported. The Ads Manager screenshot verifies delivery and messaging metrics, not payment or booking records.</div>
+    </div>
+  </div>
+  <div class="gallery" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+    <figure>
+      <img src="images/creative-22.jpg" alt="Shree Ashtavinayak Travels Marathi Sri Lanka 6 nights 7 days campaign poster" style="height:auto;max-height:none;object-fit:contain">
+      <figcaption>Campaign creative — Sri Lanka group tour, Marathi poster</figcaption>
+    </figure>
+    <figure>
+      <img src="images/creative-23.jpg" alt="Meta Ads Manager screenshot showing Sri Lanka campaign results" style="height:auto;max-height:none;object-fit:contain">
+      <figcaption>Meta Ads Manager report — 18 messaging conversations, ₹201.07 spend, ₹11.17 per result</figcaption>
+    </figure>
+  </div>
+</article>
+
+
+
+</div>
+<div class="note"><b>Measurement note:</b> Figures are transcribed from the screenshots and user-provided clarifications. Campaign-level and ad-set-level rows can repeat the same results; repeated rows have not been double-counted. Reported business outcomes are distinguished from Ads Manager metrics. Travel booking counts are client-reported ranges; exact booking attribution was not supplied. Results are not guarantees of future performance.</div>
+</div></section>
+
+<section class="section" id="skills"><div class="wrap"><div class="head"><div class="eyebrow">Capabilities</div><h2>Tools and skills.</h2></div><div class="skills">
+<div class="skill">Meta Ads Manager<small>Campaign setup & management</small></div><div class="skill">Lead Generation<small>Instant forms & lead workflows</small></div><div class="skill">WhatsApp Ads<small>Messaging-focused campaigns</small></div><div class="skill">Audience Targeting<small>Geography, interests & segmentation</small></div><div class="skill">Creative Strategy<small>Offer positioning & seasonal creative</small></div><div class="skill">Campaign Optimisation<small>Spend, CPL and cost/result analysis</small></div><div class="skill">Performance Reporting<small>Reach, impressions, frequency and results</small></div><div class="skill">Custom Audiences & Retargeting<small>Audience creation and retargeting campaigns</small></div><div class="skill">A/B Testing<small>Creative and audience variation testing</small></div><div class="skill">Google Ads<small>Basic working knowledge</small></div><div class="skill">Meta Pixel & Conversion API<small>Basic knowledge; implementation experience not claimed</small></div><div class="skill">Excel, SQL & Power BI<small>Data handling and analysis</small></div>
+</div></div></section>
+
+<section class="section" id="approach"><div class="wrap"><div class="head"><div class="eyebrow">How I work</div><h2>A structured approach to paid social.</h2><p>Campaign decisions connect the business objective, audience, creative and measurable outcome.</p></div><div class="process">
+<div class="step"><b>01 / Discover</b><h3>Understand the goal</h3><p>Clarify the offer, target customer, geography, budget and desired action.</p></div><div class="step"><b>02 / Build</b><h3>Plan the campaign</h3><p>Select the objective, structure audiences and prepare creative and copy variations.</p></div><div class="step"><b>03 / Measure</b><h3>Read the signals</h3><p>Review CTR, CPC, frequency, cost per result and lead quality in context.</p></div><div class="step"><b>04 / Improve</b><h3>Optimise thoughtfully</h3><p>Identify waste, assess creative and audience performance, and make evidence-led adjustments.</p></div>
+</div></div></section>
+
+<section class="section" id="about"><div class="wrap about"><div><div class="eyebrow">About me</div><h2>Marketing mindset. Customer-first perspective.</h2></div><div><p>I bring more than four years of customer-facing support experience alongside hands-on digital marketing and Meta Ads campaign work. My campaign experience includes local real estate, fitness, travel and agency lead generation, with responsibility for campaign setup, targeting, creative execution and optimisation.</p><p>My strongest hands-on experience is in Meta Ads campaign management, custom audiences and retargeting, creative and audience A/B testing, and campaign reporting. I also have basic working knowledge of Google Ads and basic knowledge of Meta Pixel and Conversion API. I distinguish platform familiarity from implementation experience and do not claim advanced tracking setup.</p><p class="sub">Based in Riga, Latvia · Open to Meta Ads, media buying and performance marketing opportunities.</p></div></div></section>
+
+<section class="contact" id="contact"><div class="wrap"><div class="eyebrow">Let's connect</div><h2>Have a role or campaign in mind?</h2><p>I'm interested in Meta Ads, media buying and performance marketing opportunities.</p><p>Email: <a href="mailto:avhadmohitvishnu@gmail.com">avhadmohitvishnu@gmail.com</a></p><p>WhatsApp (India): <a href="https://wa.me/917666812933" target="_blank" rel="noreferrer">+91 76668 12933</a> &nbsp;·&nbsp; WhatsApp (Latvia): <a href="https://wa.me/37129332457" target="_blank" rel="noreferrer">+371 2933 2457</a></p><div class="actions"><a class="btn primary" href="mailto:avhadmohitvishnu@gmail.com">Email me</a><a class="btn" href="https://wa.me/917666812933" target="_blank" rel="noreferrer">WhatsApp (India) ↗</a><a class="btn" href="https://wa.me/37129332457" target="_blank" rel="noreferrer">WhatsApp (Latvia) ↗</a><a class="btn" href="https://www.linkedin.com/in/mohit-avhad/" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a></div></div></section>
+</main>
+<footer><div class="wrap foot"><span>© 2026 Mohit Avhad · Meta Ads Portfolio</span><span>Campaign evidence and reported outcomes presented transparently.</span></div></footer>
+<script src="chart.umd.js"></script>
+<script>
+(function(){
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var inr=function(n){return '₹'+Number(n).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2})};
+var inr0=function(n){return '₹'+Math.round(n).toLocaleString('en-IN')};
+/* Data: transcribed from the case studies on this page. n=name, r=results, s=spend, c=cost per result */
+var D=[
+{id:'suvini',name:'Suvini Group',ind:'Real estate',type:'msg',color:'#2457a6',camps:[
+ {n:'Kulswamini Traffic',r:133,s:15214.89,c:114.40},{n:'Rutu Traffic',r:100,s:9547.29,c:95.47}]},
+{id:'milestone',name:'Milestone Fitness',ind:'Fitness',type:'msg',color:'#176b48',camps:[
+ {n:'Milestone (June)',r:21,s:1235.99,c:58.86},{n:'Diwali engagement',r:9,s:930.31,c:103.37},{n:'15 August',r:6,s:302.91,c:50.49},
+ {n:'2nd engagement',r:3,s:255.96,c:85.32},{n:'Hiring ad set',r:10,s:null,c:14.24},{n:'New traffic',r:1,s:112.94,c:112.94}],
+ totalSpend:2980.46,totalResults:50},
+{id:'adnova',name:'Adnova Digital',ind:'Digital services',type:'lead',color:'#b45309',camps:[
+ {n:'Adnova Leads (Aug)',r:9,s:1030.20,c:114.47},{n:'22 Sep Leads',r:1,s:441.06,c:441.06},{n:'Ad Leads (Aug)',r:4,s:385.07,c:96.27},{n:'New Leads (Sep)',r:4,s:256.04,c:64.01}]},
+{id:'ashta',name:'Shree Ashtavinayak',ind:'Travel',type:'msg',color:'#7c3aed',camps:[
+ {n:'Sri Lanka',r:27,s:1979.53,c:73.32},{n:'Bhutan',r:92,s:1526.44,c:16.59},{n:'Trishali Yatra',r:37,s:1522.23,c:41.14},
+ {n:'Sri Lanka 2',r:84,s:1170.52,c:13.93},{n:'Purvanchal',r:23,s:955.58,c:41.55},{n:'Bhutan short test',r:0,s:116.26,c:null}]},
+{id:'pranjali',name:'Pranjali Tours',ind:'Travel',type:'msg',color:'#0e7490',camps:[
+ {n:'Mega Engagement',r:260,s:2565.88,c:9.87},{n:'Buddha Engagement',r:99,s:1186.43,c:11.98},{n:'Bhutan Engagement',r:12,s:604.43,c:50.37},
+ {n:'13 August',r:2,s:202.84,c:101.42},{n:'16 August',r:10,s:157.01,c:15.70},{n:'17 August',r:1,s:115.07,c:115.07}]},
+{id:'destiny',name:'Destiny Tours',ind:'Travel',type:'msg',color:'#be123c',camps:[
+ {n:'First engagement',r:24,s:1857.48,c:77.40},{n:'December customised tours',r:26,s:1770.25,c:68.09},{n:'13 September engagement',r:39,s:1766.33,c:45.29},{n:'New engagement',r:12,s:1129.91,c:94.16}]},
+{id:'seat',name:'Ashtavinayak Sri Lanka seat-fill',ind:'Travel',type:'msg',color:'#4b5563',camps:[
+ {n:'Sri Lanka 6-seat tour',r:18,s:201.07,c:11.17}]}
+];
+D.forEach(function(d){
+ d.spend=d.totalSpend||d.camps.reduce(function(a,c){return a+(c.s||0)},0);
+ d.results=d.totalResults||d.camps.reduce(function(a,c){return a+c.r},0);
+ d.known=d.camps.every(function(c){return c.s!==null||c.r===0});
+ d.wcost=(d.known&&d.id!=='milestone')?d.spend/d.results:null;
+});
+var totSpend=D.reduce(function(a,d){return a+d.spend},0);
+var totMsg=D.filter(function(d){return d.type==='msg'}).reduce(function(a,d){return a+d.results},0);
+var totLead=D.filter(function(d){return d.type==='lead'}).reduce(function(a,d){return a+d.results},0);
+var nCamps=D.reduce(function(a,d){return a+d.camps.length},0);
+
+/* KPIs with count-up */
+var K=[['Total ad spend',totSpend,inr0,'Across the case studies below'],['WhatsApp conversations',totMsg,function(n){return Math.round(n).toLocaleString('en-IN')},'Messaging campaigns'],['Instant-form leads',totLead,function(n){return Math.round(n)},'Adnova Digital'],['Campaigns analysed',nCamps,function(n){return Math.round(n)},'In the explorer below']];
+var kp=document.getElementById('kpis');
+K.forEach(function(k){var d=document.createElement('div');d.className='kpi';d.innerHTML='<small>'+k[0]+'</small><strong>'+k[2](reduce?k[1]:0)+'</strong><span>'+k[3]+'</span>';kp.appendChild(d);k.push(d.querySelector('strong'))});
+function countUp(){K.forEach(function(k){if(reduce)return;var t0=performance.now();(function f(t){var p=Math.min(1,(t-t0)/900);k[4].textContent=k[2](k[1]*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)})}
+if('IntersectionObserver' in window&&!reduce){var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){countUp();io.disconnect()}},{threshold:.1});io.observe(kp);setTimeout(function(){if(K[0][4].textContent===K[0][2](0)){io.disconnect();K.forEach(function(k){k[4].textContent=k[2](k[1])})}},6000)}else{K.forEach(function(k){k[4].textContent=k[2](k[1])})}
+
+/* Case filters + lightbox (work even if Chart.js fails) */
+var cases=[].slice.call(document.querySelectorAll('.case'));
+var cats=[];cases.forEach(function(c){var t=c.querySelector('.pill').textContent.split('·')[0].trim();c.dataset.cat=t;if(cats.indexOf(t)<0)cats.push(t)});
+var fb=document.createElement('div');fb.className='chips filters';fb.setAttribute('role','group');fb.setAttribute('aria-label','Filter case studies by industry');
+['All'].concat(cats).forEach(function(t,i){var b=document.createElement('button');b.textContent=t;b.setAttribute('aria-pressed',i===0);b.onclick=function(){[].forEach.call(fb.children,function(x){x.setAttribute('aria-pressed',x===b)});cases.forEach(function(c){c.hidden=!(t==='All'||c.dataset.cat===t)})};fb.appendChild(b)});
+document.querySelector('#work .cases').before(fb);
+var lb=document.createElement('div');lb.className='lb';lb.innerHTML='<button type="button">Close</button><img alt=""><p></p>';document.body.appendChild(lb);
+var lbi=lb.querySelector('img'),lbp=lb.querySelector('p');
+document.addEventListener('click',function(e){var im=e.target.closest&&e.target.closest('figure img');if(im){lbi.src=im.src;lbi.alt=im.alt||'';lbp.textContent=(im.parentNode.querySelector('figcaption')||{}).textContent||'';lb.classList.add('on');return}if(lb.classList.contains('on')&&(e.target===lb||e.target.tagName==='BUTTON'))lb.classList.remove('on')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});
+
+if(typeof Chart==='undefined'){document.getElementById('chartFallback').style.display='block';return}
+Chart.defaults.font.family='Inter,system-ui,-apple-system,"Segoe UI",sans-serif';Chart.defaults.font.size=12;Chart.defaults.color='#52606b';
+Chart.defaults.animation=reduce?false:{duration:500};
+var grid={color:'#e9edf1'};
+
+/* 1. Cost per result by client */
+var cl=D.filter(function(d){return d.wcost!==null}).sort(function(a,b){return a.wcost-b.wcost});
+new Chart(document.getElementById('chClient'),{type:'bar',data:{labels:cl.map(function(d){return d.name}),datasets:[{data:cl.map(function(d){return +d.wcost.toFixed(2)}),backgroundColor:cl.map(function(d){return d.type==='lead'?'#b45309':'#2457a6'}),borderRadius:3}]},
+options:{indexAxis:'y',maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){var d=cl[c.dataIndex];return inr(d.wcost)+' per '+(d.type==='lead'?'lead':'conversation')},afterLabel:function(c){var d=cl[c.dataIndex];return d.results+' results · '+inr(d.spend)+' spend'}}}},scales:{x:{grid:grid,ticks:{callback:function(v){return '₹'+v}}},y:{grid:{display:false}}}}});
+
+/* 2. Scatter */
+new Chart(document.getElementById('chScatter'),{type:'scatter',data:{datasets:D.map(function(d){return{label:d.name+(d.type==='lead'?' (leads)':''),backgroundColor:d.color,pointRadius:5,pointHoverRadius:7,data:d.camps.filter(function(c){return c.s!==null}).map(function(c){return{x:c.s,y:c.r,n:c.n}})}})},
+options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:9,boxHeight:9,usePointStyle:true}},tooltip:{callbacks:{label:function(c){return c.raw.n+': '+c.raw.y+' results for '+inr(c.raw.x)}}}},scales:{x:{type:'logarithmic',title:{display:true,text:'Spend (₹, log scale)'},grid:grid,ticks:{maxRotation:0,autoSkip:false,callback:function(v){return [100,300,1000,3000,10000].indexOf(v)>-1?'₹'+v.toLocaleString('en-IN'):''}}},y:{title:{display:true,text:'Results'},grid:grid,beginAtZero:true}}}});
+
+/* 3. Explorer */
+var S={client:'ashta',metric:'cost'},bar,share;
+var chips=document.getElementById('clientChips');
+[{id:'all',name:'All clients'}].concat(D).forEach(function(d){var b=document.createElement('button');b.textContent=d.name;b.dataset.id=d.id;b.setAttribute('aria-pressed',d.id===S.client);b.onclick=function(){S.client=d.id;sync(chips,'id',d.id);draw()};chips.appendChild(b)});
+document.querySelectorAll('#metricTog button').forEach(function(b){b.onclick=function(){S.metric=b.dataset.m;sync(document.getElementById('metricTog'),'m',S.metric);draw()}});
+function sync(box,key,val){[].forEach.call(box.children,function(x){x.setAttribute('aria-pressed',x.dataset[key]===val)})}
+var LBL={cost:'Cost per result (₹)',results:'Results',spend:'Spend (₹)'};
+function draw(){
+ var all=S.client==='all';
+ var rows=[];(all?D:D.filter(function(d){return d.id===S.client})).forEach(function(d){d.camps.forEach(function(c){rows.push({n:(all?d.name+': ':'')+c.n,r:c.r,s:c.s,c:c.c,d:d})})});
+ var key={cost:'c',results:'r',spend:'s'}[S.metric];
+ var vis=rows.filter(function(x){return x[key]!==null&&x[key]!==undefined});
+ var skipped=rows.length-vis.length;
+ vis.sort(function(a,b){return S.metric==='cost'?a.c-b.c:b[key]-a[key]});
+ /* mini stats */
+ var sel=all?D:D.filter(function(d){return d.id===S.client});
+ var sp=sel.reduce(function(a,d){return a+d.spend},0),re=sel.reduce(function(a,d){return a+d.results},0);
+ var ok=sel.every(function(d){return d.wcost!==null})&&sel.every(function(d){return d.type===sel[0].type});
+ var best=rows.filter(function(x){return x.c!==null&&x.r>=5}).sort(function(a,b){return a.c-b.c})[0];
+ document.getElementById('mini').innerHTML=
+  '<div><small>Spend</small><b>'+inr(sp)+'</b></div><div><small>Results</small><b>'+re.toLocaleString('en-IN')+'</b></div>'+
+  '<div><small>Weighted cost / result</small><b>'+(ok?inr(sp/re):'n/a')+'</b></div>'+
+  '<div><small>Lowest cost (5+ results)</small><b>'+(best?inr(best.c):'n/a')+'</b></div>';
+ /* bar */
+ document.getElementById('barWrap').style.height=Math.max(260,vis.length*30+60)+'px';
+ if(bar)bar.destroy();
+ bar=new Chart(document.getElementById('chBar'),{type:'bar',data:{labels:vis.map(function(x){return x.n}),datasets:[{data:vis.map(function(x){return x[key]}),backgroundColor:vis.map(function(x){return x.d.color}),borderRadius:3}]},
+ options:{indexAxis:'y',maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){var x=vis[c.dataIndex];return LBL[S.metric].replace(' (₹)','')+': '+(S.metric==='results'?x.r:inr(x[key]))},afterLabel:function(c){var x=vis[c.dataIndex];return x.r+' results · '+(x.s===null?'spend included in total':inr(x.s))+(x.c===null?'':' · '+inr(x.c)+' each')}}}},scales:{x:{grid:grid,title:{display:true,text:LBL[S.metric]},ticks:{callback:function(v){return S.metric==='results'?v:'₹'+v.toLocaleString('en-IN')}}},y:{grid:{display:false},ticks:{autoSkip:false}}}}});
+ /* share */
+ var sk=S.metric==='spend'?'s':'r';
+ var items=all?D.map(function(d){return{n:d.name,v:sk==='s'?d.spend:d.results,color:d.color}}):rows.filter(function(x){return x[sk]}).map(function(x,i){return{n:x.n,v:x[sk],color:shade(x.d.color,i)}});
+ var tot=items.reduce(function(a,x){return a+x.v},0);
+ if(share)share.destroy();
+ share=new Chart(document.getElementById('chShare'),{type:'doughnut',data:{labels:items.map(function(x){return x.n}),datasets:[{data:items.map(function(x){return x.v}),backgroundColor:items.map(function(x){return x.color}),borderColor:'#fff',borderWidth:2}]},
+ options:{maintainAspectRatio:false,cutout:'58%',plugins:{title:{display:true,text:'Share of '+(sk==='s'?'spend':'results'),color:'#17212b',font:{weight:'700',size:13}},legend:{position:'bottom',labels:{boxWidth:9,boxHeight:9,font:{size:11}}},tooltip:{callbacks:{label:function(c){var v=c.raw;return c.label+': '+(sk==='s'?inr(v):v)+' ('+(v/tot*100).toFixed(1)+'%)'}}}}}});
+ var note=[];
+ if(skipped)note.push(skipped+' campaign'+(skipped>1?'s':'')+' not shown for this metric (no cost per result, or spend reported only within the total).');
+ if(all)note.push('Adnova Digital counts instant-form leads; all other clients count WhatsApp conversations, so weighted cost is shown per client, not combined.');
+ if(S.client==='milestone')note.push('Hiring ad set spend is included in the ₹2,980.46 total but not reported separately.');
+ document.getElementById('exNote').textContent=note.join(' ');
+}
+function shade(hex,i){var n=parseInt(hex.slice(1),16),r=n>>16,g=n>>8&255,b=n&255,t=Math.min(.65,i*.14);function m(x){return Math.round(x+(255-x)*t)}return 'rgb('+m(r)+','+m(g)+','+m(b)+')'}
+draw();
+})();
+</script>
+</body></html>
