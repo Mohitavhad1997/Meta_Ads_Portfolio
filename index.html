@@ -10,7 +10,8 @@
 .tblwrap th{position:sticky;top:0;background:#fff}
 .tblwrap td:not(:first-child),.tblwrap th:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
 
-:root{--ink:#17212b;--muted:#64717d;--line:#e4e9ee;--paper:#fff;--soft:#f5f7f9;--blue:#2457a6;--blue2:#eaf1fb;--green:#176b48;--max:1160px;--radius:8px;--shadow:0 2px 8px rgba(0,0,0,.06);--shadow-lg:0 8px 24px rgba(0,0,0,.1)}
+:root{--ink:#17212b;--muted:#64717d;--line:#e4e9ee;--paper:#fff;--soft:#f5f7f9;--blue:#2457a6;--blue2:#eaf1fb;--green:#176b48;--max:1160px}
+:root{--ink:#17212b;--muted:#64717d;--line:#e4e9ee;--paper:#fff;--soft:#f5f7f9;--blue:#2457a6;--blue2:#eaf1fb;--green:#176b48;--max:1160px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font:15px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
 a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 42px));margin:auto}
 header{height:72px;display:flex;align-items:center;justify-content:space-between}
@@ -32,10 +33,9 @@ table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0 0}th,td{p
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}figure{margin:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff}figure img{width:100%;height:250px;object-fit:contain;background:#f4f6f8;display:block}figcaption{padding:10px 12px;font-size:12px;color:#52606b}
 .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.skill{border:1px solid var(--line);padding:15px;border-radius:6px;font-size:13px;font-weight:750}.skill small{display:block;color:var(--muted);font-weight:400;margin-top:3px}
 .process{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.step{border-top:2px solid var(--ink);padding-top:13px}.step b{color:var(--blue);font-size:11px}.step h3{font-size:16px;margin:7px 0}.step p{font-size:13px;color:var(--muted);margin:0}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:50px}.about p{color:#56636e}.contact{background:var(--ink);color:var(--paper);padding:55px 0}.contact .eyebrow{color:var(--blue)}.contact p{color:var(--muted)}.contact .btn{border-color:var(--line);color:var(--ink)}.contact .btn.primary{background:var(--ink);color:var(--paper)}footer{padding:22px 0;color:#7c8790;font-size:12px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:50px}.about p{color:#56636e}.contact{background:var(--ink);color:white;padding:55px 0}.contact .eyebrow{color:#a8c7f3}.contact p{color:#c5cdd4}.contact .btn{border-color:white;color:white}.contact .btn.primary{background:white;color:var(--ink)}footer{padding:22px 0;color:#7c8790;font-size:12px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
 @media(max-width:800px){.hero{grid-template-columns:1fr;gap:28px;padding:58px 0}.stats,.metrics{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}.skills,.process{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr;gap:15px}nav{gap:12px}nav a:nth-child(3),nav a:nth-child(4){display:none}}
 @media(max-width:560px){.wrap{width:calc(100% - 30px)}header{height:62px}nav{font-size:11px}.section{padding:52px 0}h2{font-size:29px}.case{padding:18px}.stats,.metrics,.skills,.process,.gallery{grid-template-columns:1fr}figure img{height:auto;max-height:420px}.lead{font-size:16px}}
-
 /* ---- Interactive dashboard ---- */
 .dash{background:var(--soft)}
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
@@ -106,12 +106,12 @@ figure img{cursor:zoom-in}
 <div class="casehead"><span class="pill">Real estate · WhatsApp lead generation</span><span class="sub">01 / Suvini Group – Kulswamini Homes</span></div>
 <h3>Local property enquiries and site visits</h3><p class="sub">Two campaigns for the same real estate client, targeting local buyers around Kalyan, Bhiwandi, Dombivli, Ambernath and nearby areas.</p>
 <div class="stats">
-<div class="stat"><small>Combined ad spend</small><strong>₹24,762.18</strong></div><div class="stat"><small>Messaging conversations</small><strong>233</strong></div><div class="stat"><small>Weighted cost / conversation</small><strong>₹106.28</strong></div><div class="stat"><small>Verified site visits</small><strong><em>40</em></strong></div>
+<div class="stat"><small>Combined ad spend</small><strong>₹24,762.18</strong></div><div class="stat"><small>Messaging conversations</small><strong>233</strong></div><div class="stat"><small>Weighted cost / conversation</small><strong>₹106.28</strong></div><div class="stat"><small>Verified site visits</small><strong><em>30</em></strong></div>
 </div>
 <div class="twocol"><div><div class="eyebrow">Campaign breakdown</div><table><thead><tr><th>Campaign</th><th>Conversations</th><th>Spend</th><th>Cost/result</th></tr></thead><tbody>
 <tr><td>Kulswamini Traffic</td><td>133</td><td>₹15,214.89</td><td>₹114.40</td></tr><tr><td>Rutu Traffic</td><td>100</td><td>₹9,547.29</td><td>₹95.47</td></tr></tbody></table>
 <div class="eyebrow" style="margin-top:20px">Strategy & execution</div><ul><li>Local geographic targeting across Kalyan-region catchments, with selected state exclusions.</li><li>Housing special ad category was selected in the Kulswamini ad set.</li><li>Age range 25–65+ and all genders; real-estate interest targeting included apartment, condominium and first-time-buyer interests.</li><li>WhatsApp messaging objective, property-led offers and seasonal Diwali creative replacement.</li><li>Compared image and reel ad performance: one image ad generated 79 conversations at ₹82.06; one reel generated 39 at ₹123.66.</li></ul></div>
-<div><div class="eyebrow">Business outcome & learnings</div><ul><li>40 property site visits were reported for Kulswamini. Based on 133 conversations, the indicative conversation-to-visit rate is 30.08% and cost per visit is ₹380.35.</li><li>Rutu's downstream site visits and sales were not available.</li><li>Image creative had a lower cost per conversation than the reported reel during the measured period; this is a performance comparison, not a controlled A/B test.</li><li>Audience breakdowns showed more messaging conversations from men in the displayed reports; lead quality by gender was not available.</li></ul><div class="note">The 40 site visits are attributed to Kulswamini only, not to the combined 233 conversations. No property bookings or sales are claimed.</div></div></div>
+<div><div class="eyebrow">Business outcome & learnings</div><ul><li>30 property site visits were reported for Kulswamini. Based on 133 conversations, the indicative conversation-to-visit rate is 22.56% and cost per visit is ₹507.16.</li><li>Rutu's downstream site visits and sales were not available.</li><li>Image creative had a lower cost per conversation than the reported reel during the measured period; this is a performance comparison, not a controlled A/B test.</li><li>Audience breakdowns showed more messaging conversations from men in the displayed reports; lead quality by gender was not available.</li></ul><div class="note">The 30 site visits are attributed to Kulswamini only, not to the combined 233 conversations. No property bookings or sales are claimed.</div></div></div>
 <div class="gallery"><figure><img src="images/creative-01.jpg" alt="Kulswamini Homes Diwali property advertisement"><figcaption>Kulswamini Homes – Diwali creative used after replacing the original version.</figcaption></figure><figure><img src="images/creative-02.jpg" alt="Kulswamini Homes property creative"><figcaption>Property offer: 1 BHK and 2 BHK homes in Khadakpada, Kalyan West.</figcaption></figure><figure><img src="images/creative-03.jpg" alt="Kulswamini campaign creative"><figcaption>Creative execution – local-language offer, pricing and WhatsApp/site-visit CTA.</figcaption></figure></div>
 </article>
 
@@ -470,104 +470,6 @@ function draw(){
 }
 function shade(hex,i){var n=parseInt(hex.slice(1),16),r=n>>16,g=n>>8&255,b=n&255,t=Math.min(.65,i*.14);function m(x){return Math.round(x+(255-x)*t)}return 'rgb('+m(r)+','+m(g)+','+m(b)+')'}
 draw();
-
-/* ===== ANIMATED COUNTERS ON SCROLL ===== */
-(function(){
-  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce)return;
-  function animateCounter(el,target,formatter,duration){
-    var start=0;var t0=performance.now();
-    function step(t){
-      var p=Math.min(1,(t-t0)/duration);
-      var eased=1-Math.pow(1-p,3);
-      el.textContent=formatter(target*eased);
-      if(p<1)requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        var el=entry.target;
-        var val=parseFloat(el.dataset.value);
-        var fmt=el.dataset.fmt||'num';
-        if(!isNaN(val)&&!el.dataset.animated){
-          el.dataset.animated='true';
-          var duration=900;
-          if(fmt==='inr')animateCounter(el,val,function(n){return '₹'+Math.round(n).toLocaleString('en-IN')},duration);
-          else if(fmt==='inr2')animateCounter(el,val,function(n){return '₹'+Number(n).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2})},duration);
-          else animateCounter(el,val,function(n){return Math.round(n).toLocaleString('en-IN')},duration);
-        }
-        io.unobserve(el);
-      }
-    });
-  },{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
-  document.querySelectorAll('.stat strong,.metric b,.kpi strong').forEach(function(el){
-    var text=el.textContent.trim().replace(/[₹,]/g,'');
-    var val=parseFloat(text);
-    if(!isNaN(val)){
-      el.dataset.value=val;
-      if(el.closest('.stat')||el.closest('.kpi'))el.dataset.fmt=el.textContent.includes('₹')&&text.includes('.')?'inr2':'inr';
-      io.observe(el);
-    }
-  });
-})();
-
-/* ===== ELEGANT METRICS VISUALIZATION: PERFORMANCE RINGS ===== */
-(function(){
-  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var ringsContainer=document.createElement('div');
-  ringsContainer.className='rings';
-  ringsContainer.style.cssText='display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin:24px 0';
-  ringsContainer.innerHTML='<h4 style="grid-column:1/-1;margin:0 0 12px;font-size:14px;color:var(--muted)">Campaign Efficiency Rings</h4>';
-
-  var ringData=[
-    {label:'Cost Efficiency',value:0.78,color:'#176b48',sub:'Lower CPL = higher'},
-    {label:'Lead Quality',value:0.65,color:'#2457a6',sub:'Conversions / conversations'},
-    {label:'Creative Performance',value:0.72,color:'#b45309',sub:'CTR vs benchmark'},
-    {label:'Budget Utilization',value:0.88,color:'#7c3aed',sub:'Spend vs allocated'}
-  ];
-
-  ringData.forEach(function(d,i){
-    var wrap=document.createElement('div');
-    wrap.style.cssText='text-align:center';
-    var size=120,stroke=10,r=size/2-stroke/2,circ=2*Math.PI*r;
-    var offset=circ*(1-d.value);
-    var svg='<svg width="'+size+'" height="'+size+'" style="transform:rotate(-90deg)">'+
-      '<circle cx="'+r+'" cy="'+r+'" r="'+r+'" fill="none" stroke="var(--line)" stroke-width="'+stroke+'"/>'+
-      '<circle cx="'+r+'" cy="'+r+'" r="'+r+'" fill="none" stroke="'+d.color+'" stroke-width="'+stroke+'" stroke-linecap="round" stroke-dasharray="'+circ+'" stroke-dashoffset="'+circ+'" class="ring-prog" data-target="'+offset+'"/>'+
-      '</svg>';
-    wrap.innerHTML=svg+'<div style="margin-top:8px"><strong style="font-size:13px">'+d.label+'</strong><br><small style="color:var(--muted)">'+(Math.round(d.value*100))+'%</small><br><small style="color:var(--muted);font-size:10px">'+d.sub+'</small></div>';
-    ringsContainer.appendChild(wrap);
-  });
-
-  var dashSec=document.querySelector('#dashboard .wrap');
-  if(dashSec){
-    dashSec.insertBefore(ringsContainer,dashSec.querySelector('.grid2'));
-    if(!reduce){
-      var ringObserver=new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          if(entry.isIntersecting){
-            entry.target.querySelectorAll('.ring-prog').forEach(function(circle){
-              var target=parseFloat(circle.dataset.target);
-              var circ=2*Math.PI*(60-5);
-              var start=performance.now();
-              function animate(t){
-                var p=Math.min(1,(t-start)/1200);
-                var eased=1-Math.pow(1-p,3);
-                circle.style.strokeDashoffset=circ*(1-eased* (1-circle.dataset.target/circ));
-                if(p<1)requestAnimationFrame(animate);
-              }
-              requestAnimationFrame(animate);
-            });
-            ringObserver.unobserve(entry.target);
-          }
-        });
-      },{threshold:0.2});
-      ringObserver.observe(ringsContainer);
-    }
-  }
 })();
 </script>
 </body></html>
-<!-- deploy test Tue Nov 24 15:22:00 FLEST 2026 -->
