@@ -10,8 +10,9 @@
 .tblwrap th{position:sticky;top:0;background:#fff}
 .tblwrap td:not(:first-child),.tblwrap th:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
 
-:root{--ink:#17212b;--muted:#64717d;--line:#e4e9ee;--paper:#fff;--soft:#f5f7f9;--blue:#2457a6;--blue2:#eaf1fb;--green:#176b48;--max:1160px}
-:root{--ink:#17212b;--muted:#64717d;--line:#e4e9ee;--paper:#fff;--soft:#f5f7f9;--blue:#2457a6;--blue2:#eaf1fb;--green:#176b48;--max:1160px}
+:root{--ink:#17212b;--muted:#64717d;--line:#e4e9ee;--paper:#fff;--soft:#f5f7f9;--blue:#2457a6;--blue2:#eaf1fb;--green:#176b48;--max:1160px;--radius:8px;--shadow:0 2px 8px rgba(0,0,0,.06);--shadow-lg:0 8px 24px rgba(0,0,0,.1)}
+:root{--ink:#17212b;--muted:#64717d;--line:#e4e9ee;--paper:#fff;--soft:#f5f7f9;--blue:#2457a6;--blue2:#eaf1fb;--green:#176b48;--max:1160px;--radius:8px;--shadow:0 2px 8px rgba(0,0,0,.06);--shadow-lg:0 8px 24px rgba(0,0,0,.1)}
+[data-theme="dark"]{--ink:#e8ecf1;--muted:#98a3ad;--line:#2d3540;--paper:#111820;--soft:#1a222e;--blue:#5a9cf7;--blue2:#1e3a5f;--green:#4ade80;--shadow:0 2px 8px rgba(0,0,0,.3);--shadow-lg:0 8px 24px rgba(0,0,0,.4)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font:15px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
 a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 42px));margin:auto}
 header{height:72px;display:flex;align-items:center;justify-content:space-between}
@@ -73,7 +74,7 @@ figure img{cursor:zoom-in}
 </style>
 </head>
 <body>
-<header class="wrap"><a class="brand" href="#home">MOHIT AVHAD<span>.</span></a><nav><a href="#dashboard">Dashboard</a><a href="#work">Case studies</a><a href="#skills">Skills</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#contact">Contact</a></nav></header>
+<header class="wrap"><a class="brand" href="#home">MOHIT AVHAD<span>.</span></a><nav><a href="#dashboard">Dashboard</a><a href="#work">Case studies</a><a href="#skills">Skills</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#contact">Contact</a></nav><button id="themeToggle" class="btn" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button></header>
 <main>
 <section class="wrap hero" id="home">
 <div><div class="eyebrow">Meta Ads · Paid Social · Lead Generation</div><h1>Turning campaign data into <em>business action.</em></h1>
@@ -470,6 +471,123 @@ function draw(){
 }
 function shade(hex,i){var n=parseInt(hex.slice(1),16),r=n>>16,g=n>>8&255,b=n&255,t=Math.min(.65,i*.14);function m(x){return Math.round(x+(255-x)*t)}return 'rgb('+m(r)+','+m(g)+','+m(b)+')'}
 draw();
+
+/* ===== DARK MODE TOGGLE ===== */
+(function(){
+  var toggle=document.getElementById('themeToggle');
+  var html=document.documentElement;
+  var saved=localStorage.getItem('theme');
+  var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var isDark=saved?saved==='dark':prefersDark;
+  function apply(dark){
+    html.setAttribute('data-theme',dark?'dark':'light');
+    toggle.textContent=dark?'☀️':'🌙';
+    toggle.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
+    localStorage.setItem('theme',dark?'dark':'light');
+    if(bar)bar.update();if(share)share.update();
+    if(typeof Chart!=='undefined'){Chart.instances.forEach(function(c){c.update()})}
+  }
+  apply(isDark);
+  toggle.onclick=function(){apply(!html.hasAttribute('data-theme')||html.getAttribute('data-theme')==='light')};
+})();
+
+/* ===== ANIMATED COUNTERS ON SCROLL ===== */
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce)return;
+  function animateCounter(el,target,formatter,duration){
+    var start=0;var t0=performance.now();
+    function step(t){
+      var p=Math.min(1,(t-t0)/duration);
+      var eased=1-Math.pow(1-p,3);
+      el.textContent=formatter(target*eased);
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var el=entry.target;
+        var val=parseFloat(el.dataset.value);
+        var fmt=el.dataset.fmt||'num';
+        if(!isNaN(val)&&!el.dataset.animated){
+          el.dataset.animated='true';
+          var duration=900;
+          if(fmt==='inr')animateCounter(el,val,function(n){return '₹'+Math.round(n).toLocaleString('en-IN')},duration);
+          else if(fmt==='inr2')animateCounter(el,val,function(n){return '₹'+Number(n).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2})},duration);
+          else animateCounter(el,val,function(n){return Math.round(n).toLocaleString('en-IN')},duration);
+        }
+        io.unobserve(el);
+      }
+    });
+  },{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.stat strong,.metric b,.kpi strong').forEach(function(el){
+    var text=el.textContent.trim().replace(/[₹,]/g,'');
+    var val=parseFloat(text);
+    if(!isNaN(val)){
+      el.dataset.value=val;
+      if(el.closest('.stat')||el.closest('.kpi'))el.dataset.fmt=el.textContent.includes('₹')&&text.includes('.')?'inr2':'inr';
+      io.observe(el);
+    }
+  });
+})();
+
+/* ===== ELEGANT METRICS VISUALIZATION: PERFORMANCE RINGS ===== */
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ringsContainer=document.createElement('div');
+  ringsContainer.className='rings';
+  ringsContainer.style.cssText='display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin:24px 0';
+  ringsContainer.innerHTML='<h4 style="grid-column:1/-1;margin:0 0 12px;font-size:14px;color:var(--muted)">Campaign Efficiency Rings</h4>';
+
+  var ringData=[
+    {label:'Cost Efficiency',value:0.78,color:'#176b48',sub:'Lower CPL = higher'},
+    {label:'Lead Quality',value:0.65,color:'#2457a6',sub:'Conversions / conversations'},
+    {label:'Creative Performance',value:0.72,color:'#b45309',sub:'CTR vs benchmark'},
+    {label:'Budget Utilization',value:0.88,color:'#7c3aed',sub:'Spend vs allocated'}
+  ];
+
+  ringData.forEach(function(d,i){
+    var wrap=document.createElement('div');
+    wrap.style.cssText='text-align:center';
+    var size=120,stroke=10,r=size/2-stroke/2,circ=2*Math.PI*r;
+    var offset=circ*(1-d.value);
+    var svg='<svg width="'+size+'" height="'+size+'" style="transform:rotate(-90deg)">'+
+      '<circle cx="'+r+'" cy="'+r+'" r="'+r+'" fill="none" stroke="var(--line)" stroke-width="'+stroke+'"/>'+
+      '<circle cx="'+r+'" cy="'+r+'" r="'+r+'" fill="none" stroke="'+d.color+'" stroke-width="'+stroke+'" stroke-linecap="round" stroke-dasharray="'+circ+'" stroke-dashoffset="'+circ+'" class="ring-prog" data-target="'+offset+'"/>'+
+      '</svg>';
+    wrap.innerHTML=svg+'<div style="margin-top:8px"><strong style="font-size:13px">'+d.label+'</strong><br><small style="color:var(--muted)">'+(Math.round(d.value*100))+'%</small><br><small style="color:var(--muted);font-size:10px">'+d.sub+'</small></div>';
+    ringsContainer.appendChild(wrap);
+  });
+
+  var dashSec=document.querySelector('#dashboard .wrap');
+  if(dashSec){
+    dashSec.insertBefore(ringsContainer,dashSec.querySelector('.grid2'));
+    if(!reduce){
+      var ringObserver=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.querySelectorAll('.ring-prog').forEach(function(circle){
+              var target=parseFloat(circle.dataset.target);
+              var circ=2*Math.PI*(60-5);
+              var start=performance.now();
+              function animate(t){
+                var p=Math.min(1,(t-start)/1200);
+                var eased=1-Math.pow(1-p,3);
+                circle.style.strokeDashoffset=circ*(1-eased* (1-circle.dataset.target/circ));
+                if(p<1)requestAnimationFrame(animate);
+              }
+              requestAnimationFrame(animate);
+            });
+            ringObserver.unobserve(entry.target);
+          }
+        });
+      },{threshold:0.2});
+      ringObserver.observe(ringsContainer);
+    }
+  }
+})();
 })();
 </script>
 </body></html>
