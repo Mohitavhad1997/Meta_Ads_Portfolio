@@ -74,10 +74,15 @@ table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0 0}th,td{p
 [data-theme="dark"] .skill small{color:var(--muted)}
 [data-theme="dark"] .process p{color:var(--muted)}
 [data-theme="dark"] .contact{background:var(--ink);color:#e8ecf1}
-[data-theme="dark"] .contact .eyebrow{color:var(--blue2)}
-[data-theme="dark"] .contact p{color:var(--muted)}
+[data-theme="dark"] .contact .eyebrow{color:var(--blue)}
+[data-theme="dark"] .contact h2{color:#e8ecf1}
+[data-theme="dark"] .contact p{color:#c5cdd4}
+[data-theme="dark"] .contact a{color:var(--blue)}
+[data-theme="dark"] .contact a:hover{color:var(--blue2)}
 [data-theme="dark"] .contact .btn{border-color:var(--line);color:#e8ecf1}
-[data-theme="dark"] .contact .btn.primary{background:#e8ecf1;color:var(--ink)}
+[data-theme="dark"] .contact .btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+[data-theme="dark"] .contact .btn:hover{border-color:var(--blue);color:var(--blue)}
+[data-theme="dark"] .contact .btn.primary:hover{background:var(--blue2);border-color:var(--blue);color:var(--blue)}
 [data-theme="dark"] footer{color:var(--muted)}
 [data-theme="dark"] .lb{background:rgba(0,0,0,.92)}
 [data-theme="dark"] .lb img{background:var(--paper)}
@@ -535,6 +540,8 @@ draw();
   }
   apply(isDark);
   toggle.onclick=function(){apply(html.getAttribute('data-theme')!=='dark')};
+  /* ensure button visible in both themes */
+  toggle.style.cssText='background:var(--soft);border:1px solid var(--line);color:var(--ink);padding:8px 12px;border-radius:999px;font-size:16px;cursor:pointer;transition:all .2s';
 })();
 
 /* ===== ANIMATED COUNTERS ON SCROLL ===== */
