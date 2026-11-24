@@ -35,7 +35,7 @@ table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0 0}th,td{p
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}figure{margin:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff}figure img{width:100%;height:250px;object-fit:contain;background:#f4f6f8;display:block}figcaption{padding:10px 12px;font-size:12px;color:#52606b}
 .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.skill{border:1px solid var(--line);padding:15px;border-radius:6px;font-size:13px;font-weight:750}.skill small{display:block;color:var(--muted);font-weight:400;margin-top:3px}
 .process{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.step{border-top:2px solid var(--ink);padding-top:13px}.step b{color:var(--blue);font-size:11px}.step h3{font-size:16px;margin:7px 0}.step p{font-size:13px;color:var(--muted);margin:0}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:50px}.about p{color:#56636e}.contact{background:var(--ink);color:white;padding:55px 0}.contact .eyebrow{color:#a8c7f3}.contact p{color:#c5cdd4}.contact .btn{border-color:white;color:white}.contact .btn.primary{background:white;color:var(--ink)}footer{padding:22px 0;color:#7c8790;font-size:12px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:50px}.about p{color:#56636e}.contact{background:var(--ink);color:var(--paper);padding:55px 0}.contact .eyebrow{color:var(--blue)}.contact p{color:var(--muted)}.contact .btn{border-color:var(--line);color:var(--ink)}.contact .btn.primary{background:var(--ink);color:var(--paper)}footer{padding:22px 0;color:#7c8790;font-size:12px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
 @media(max-width:800px){.hero{grid-template-columns:1fr;gap:28px;padding:58px 0}.stats,.metrics{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}.skills,.process{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr;gap:15px}nav{gap:12px}nav a:nth-child(3),nav a:nth-child(4){display:none}}
 @media(max-width:560px){.wrap{width:calc(100% - 30px)}header{height:62px}nav{font-size:11px}.section{padding:52px 0}h2{font-size:29px}.case{padding:18px}.stats,.metrics,.skills,.process,.gallery{grid-template-columns:1fr}figure img{height:auto;max-height:420px}.lead{font-size:16px}}
 
@@ -536,7 +536,7 @@ draw();
   var isDark=saved?saved==='dark':prefersDark;
   function apply(dark){
     html.setAttribute('data-theme',dark?'dark':'light');
-    toggle.setAttribute('aria-pressed',dark);
+    toggle.setAttribute('aria-pressed',dark?'true':'false');
     toggle.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
     localStorage.setItem('theme',dark?'dark':'light');
     if(bar)bar.update();if(share)share.update();
