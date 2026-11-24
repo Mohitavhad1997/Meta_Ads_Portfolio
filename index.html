@@ -470,6 +470,105 @@ function draw(){
 }
 function shade(hex,i){var n=parseInt(hex.slice(1),16),r=n>>16,g=n>>8&255,b=n&255,t=Math.min(.65,i*.14);function m(x){return Math.round(x+(255-x)*t)}return 'rgb('+m(r)+','+m(g)+','+m(b)+')'}
 draw();
+
+/* ===== FUNNEL VISUALIZATION ===== */
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var funnelData=[
+    {id:'suvini',name:'Suvini Group',ind:'Real estate',color:'#2457a6',stages:[
+      {label:'Impressions',value:50000,unit:''},
+      {label:'Clicks',value:1000,unit:''},
+      {label:'WhatsApp Conversations',value:233,unit:''},
+      {label:'Site Visits',value:40,unit:''}
+    ]},
+    {id:'milestone',name:'Milestone Fitness',ind:'Fitness',color:'#176b48',stages:[
+      {label:'Impressions',value:20000,unit:''},
+      {label:'Clicks',value:400,unit:''},
+      {label:'Conversations',value:50,unit:''},
+      {label:'Memberships',value:5,unit:''}
+    ]},
+    {id:'adnova',name:'Adnova Digital',ind:'Digital services',color:'#b45309',stages:[
+      {label:'Impressions',value:15000,unit:''},
+      {label:'Clicks',value:300,unit:''},
+      {label:'Form Opens',value:100,unit:''},
+      {label:'Leads',value:18,unit:''}
+    ]},
+    {id:'ashta',name:'Shree Ashtavinayak',ind:'Travel',color:'#7c3aed',stages:[
+      {label:'Impressions',value:60000,unit:''},
+      {label:'Clicks',value:1200,unit:''},
+      {label:'Conversations',value:263,unit:''},
+      {label:'Bookings',value:20,unit:''}
+    ]},
+    {id:'pranjali',name:'Pranjali Tours',ind:'Travel',color:'#0e7490',stages:[
+      {label:'Impressions',value:80000,unit:''},
+      {label:'Clicks',value:1600,unit:''},
+      {label:'Conversations',value:384,unit:''},
+      {label:'Bookings',value:20,unit:''}
+    ]},
+    {id:'destiny',name:'Destiny Tours',ind:'Travel',color:'#be123c',stages:[
+      {label:'Impressions',value:30000,unit:''},
+      {label:'Clicks',value:600,unit:''},
+      {label:'Conversations',value:101,unit:''},
+      {label:'Bookings',value:13,unit:''}
+    ]},
+    {id:'seat',name:'Ashtavinayak Seat-fill',ind:'Travel',color:'#4b5563',stages:[
+      {label:'Impressions',value:5000,unit:''},
+      {label:'Clicks',value:100,unit:''},
+      {label:'Conversations',value:18,unit:''},
+      {label:'Seats Filled',value:6,unit:''}
+    ]}
+  ];
+
+  var funnelContainer=document.createElement('section');
+  funnelContainer.className='section';
+  funnelContainer.id='funnel';
+  funnelContainer.innerHTML='<div class="wrap"><div class="head"><div class="eyebrow">Funnel Analysis</div><h2>Campaign funnel: Impressions to outcomes.</h2><p>Estimated funnel stages for each client. Click a client to view their funnel.</p></div><div class="funnel-controls" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px" role="group" aria-label="Select client"></div><div class="funnel-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px"></div></div>';
+
+  var controls=funnelContainer.querySelector('.funnel-controls');
+  var grid=funnelContainer.querySelector('.funnel-grid');
+
+  funnelData.forEach(function(d,i){
+    var btn=document.createElement('button');
+    btn.textContent=d.name;
+    btn.dataset.id=d.id;
+    btn.style.cssText='padding:8px 16px;border:1px solid var(--line);background:'+(i===0?'var(--ink)':'#fff')+';color:'+(i===0?'#fff':'var(--ink)')+';border-radius:999px;font-size:13px;font-weight:650;cursor:pointer;transition:all .2s';
+    btn.onclick=function(){
+      controls.querySelectorAll('button').forEach(function(b){b.style.background='#fff';b.style.color='var(--ink)'});
+      btn.style.background='var(--ink)';btn.style.color='#fff';
+      renderFunnel(d);
+    };
+    controls.appendChild(btn);
+  });
+
+  function renderFunnel(d){
+    var maxVal=Math.max.apply(null,d.stages.map(function(s){return s.value}));
+    grid.innerHTML='';
+    d.stages.forEach(function(stage,idx){
+      var pct=(stage.value/maxVal*100).toFixed(1);
+      var conversion=idx>0?((stage.value/d.stages[idx-1].value)*100).toFixed(1):'100';
+      var card=document.createElement('div');
+      card.style.cssText='background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-align:center;position:relative;box-shadow:var(--shadow)';
+      var isLast=idx===d.stages.length-1;
+      card.innerHTML=
+        '<div style="font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px">'+stage.label+'</div>'+
+        '<div style="font-size:36px;font-weight:800;color:var(--ink);line-height:1;margin-bottom:4px">'+stage.value.toLocaleString('en-IN')+'</div>'+
+        (idx>0?'<div style="font-size:12px;color:var(--green);margin-bottom:12px">'+conversion+'% from previous stage</div>':'')+
+        '<div style="height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin-top:16px">'+
+          '<div style="width:'+pct+'%;height:100%;background:'+d.color+';border-radius:4px;transition:width .6s cubic-bezier(.25,.46,.45,.94)"></div>'+
+        '</div>';
+      grid.appendChild(card);
+    });
+    if(!reduce){
+      grid.querySelectorAll('div[style*="width:"]').forEach(function(bar){
+        var w=bar.style.width;bar.style.width='0%';
+        requestAnimationFrame(function(){bar.style.width=w});
+      });
+    }
+  }
+
+  var dashSec=document.querySelector('#dashboard');
+  dashSec.parentNode.insertBefore(funnelContainer,dashSec.nextSibling);
+  renderFunnel(funnelData[0]);
 })();
 </script>
 </body></html>
