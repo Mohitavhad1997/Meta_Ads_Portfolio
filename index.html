@@ -11,14 +11,11 @@
 .tblwrap td:not(:first-child),.tblwrap th:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
 
 :root{--ink:#17212b;--muted:#64717d;--line:#e4e9ee;--paper:#fff;--soft:#f5f7f9;--blue:#2457a6;--blue2:#eaf1fb;--green:#176b48;--max:1160px;--radius:8px;--shadow:0 2px 8px rgba(0,0,0,.06);--shadow-lg:0 8px 24px rgba(0,0,0,.1)}
-:root{--ink:#17212b;--muted:#64717d;--line:#e4e9ee;--paper:#fff;--soft:#f5f7f9;--blue:#2457a6;--blue2:#eaf1fb;--green:#176b48;--max:1160px;--radius:8px;--shadow:0 2px 8px rgba(0,0,0,.06);--shadow-lg:0 8px 24px rgba(0,0,0,.1)}
-[data-theme="dark"]{--ink:#e8ecf1;--muted:#98a3ad;--line:#2d3540;--paper:#111820;--soft:#1a222e;--blue:#5a9cf7;--blue2:#1e3a5f;--green:#4ade80;--shadow:0 2px 8px rgba(0,0,0,.3);--shadow-lg:0 8px 24px rgba(0,0,0,.4)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font:15px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
 a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 42px));margin:auto}
 header{height:72px;display:flex;align-items:center;justify-content:space-between}
   .brand{font-size:19px;font-weight:850;letter-spacing:-.05em}.brand span{color:var(--blue)}nav{display:flex;gap:24px;font-size:13px;font-weight:650;color:#52606b}
 nav a:hover{color:var(--blue)}.hero{padding:82px 0 70px;display:grid;grid-template-columns:1.4fr .75fr;gap:64px;align-items:center}
-.theme-switch{position:relative;width:48px;height:26px;border-radius:13px;background:var(--line);border:0;cursor:pointer;transition:background .3s}.theme-switch::after{content:"";position:absolute;top:2px;left:2px;width:22px;height:22px;border-radius:50%;background:var(--paper);box-shadow:0 2px 4px rgba(0,0,0,.2);transition:transform .3s}.theme-switch[aria-pressed="true"]{background:var(--blue)}.theme-switch[aria-pressed="true"]::after{transform:translateX(22px)}
 .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--blue);font-weight:850}
 h1{font-size:clamp(42px,6vw,68px);line-height:1.04;letter-spacing:-.06em;margin:16px 0 20px}h1 em{font-style:normal;color:var(--blue)}
 .lead{font-size:18px;color:#56636e;max-width:690px}.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:27px}
@@ -39,59 +36,6 @@ table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0 0}th,td{p
 @media(max-width:800px){.hero{grid-template-columns:1fr;gap:28px;padding:58px 0}.stats,.metrics{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}.skills,.process{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr;gap:15px}nav{gap:12px}nav a:nth-child(3),nav a:nth-child(4){display:none}}
 @media(max-width:560px){.wrap{width:calc(100% - 30px)}header{height:62px}nav{font-size:11px}.section{padding:52px 0}h2{font-size:29px}.case{padding:18px}.stats,.metrics,.skills,.process,.gallery{grid-template-columns:1fr}figure img{height:auto;max-height:420px}.lead{font-size:16px}}
 
-/* ===== DARK MODE OVERRIDES ===== */
-[data-theme="dark"] .kpi,[data-theme="dark"] .panel,[data-theme="dark"] .tblwrap th,[data-theme="dark"] .case,[data-theme="dark"] .metric,[data-theme="dark"] .stat,[data-theme="dark"] .skill,[data-theme="dark"] .step,[data-theme="dark"] figure,[data-theme="dark"] .mini div,[data-theme="dark"] .note,[data-theme="dark"] .insight,[data-theme="dark"] .fallback{background:var(--soft);border-color:var(--line)}
-[data-theme="dark"] .chips button,[data-theme="dark"] .tog button,[data-theme="dark"] .tblwrap th{background:var(--soft);color:var(--ink);border-color:var(--line)}
-[data-theme="dark"] .chips button:hover,[data-theme="dark"] .tog button:hover{border-color:var(--blue);color:var(--blue)}
-[data-theme="dark"] .chips button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
-[data-theme="dark"] .tog button[aria-pressed="true"]{background:var(--blue);color:#fff}
-[data-theme="dark"] .btn{border-color:var(--line);color:var(--ink)}
-[data-theme="dark"] .btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
-[data-theme="dark"] .legend i{background:var(--line)}
-[data-theme="dark"] table th,[data-theme="dark"] table td{border-color:var(--line)}
-[data-theme="dark"] .profile{background:var(--soft);border-color:var(--line)}
-[data-theme="dark"] .initials{background:var(--blue2);color:var(--blue)}
-[data-theme="dark"] .meta b{color:var(--muted)}
-[data-theme="dark"] nav a{color:var(--muted)}
-[data-theme="dark"] nav a:hover{color:var(--blue)}
-[data-theme="dark"] .brand span{color:var(--blue)}
-[data-theme="dark"] .eyebrow{color:var(--blue)}
-[data-theme="dark"] h1 em{color:var(--blue)}
-[data-theme="dark"] .sub{color:var(--muted)}
-[data-theme="dark"] .pill{background:var(--blue2);color:var(--blue)}
-[data-theme="dark"] .stat em{color:var(--green)}
-[data-theme="dark"] .kpi span{color:var(--muted)}
-[data-theme="dark"] .mini small{color:var(--muted)}
-[data-theme="dark"] .lead{color:var(--muted)}
-[data-theme="dark"] .head p{color:var(--muted)}
-[data-theme="dark"] .about p{color:var(--muted)}
-[data-theme="dark"] .case p{color:var(--muted)}
-[data-theme="dark"] .case ul{color:var(--muted)}
-[data-theme="dark"] .note{background:var(--soft);border-left-color:var(--blue)}
-[data-theme="dark"] .insight{background:var(--blue2);color:var(--ink)}
-[data-theme="dark"] .fallback{background:var(--soft);border-color:var(--line)}
-[data-theme="dark"] figure img{background:var(--paper)}
-[data-theme="dark"] figcaption{color:var(--muted)}
-[data-theme="dark"] .skill small{color:var(--muted)}
-[data-theme="dark"] .process p{color:var(--muted)}
-[data-theme="dark"] .contact{background:var(--ink);color:#e8ecf1}
-[data-theme="dark"] .contact .eyebrow{color:var(--blue)}
-[data-theme="dark"] .contact h2{color:#e8ecf1}
-[data-theme="dark"] .contact p{color:#c5cdd4}
-[data-theme="dark"] .contact a{color:var(--blue)}
-[data-theme="dark"] .contact a:hover{color:var(--blue2)}
-[data-theme="dark"] .contact .btn{border-color:var(--line);color:#e8ecf1;background:transparent}
-[data-theme="dark"] .contact .btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
-[data-theme="dark"] .contact .btn:hover{border-color:var(--blue);color:var(--blue);background:var(--soft)}
-[data-theme="dark"] .contact .btn.primary:hover{background:var(--blue2);border-color:var(--blue);color:var(--blue)}
-[data-theme="dark"] .theme-switch{background:var(--line)}
-[data-theme="dark"] .theme-switch::after{background:var(--paper)}
-[data-theme="dark"] .theme-switch[aria-pressed="true"]{background:var(--blue)}
-[data-theme="dark"] footer{color:var(--muted)}
-[data-theme="dark"] .lb{background:rgba(0,0,0,.92)}
-[data-theme="dark"] .lb img{background:var(--paper)}
-[data-theme="dark"] .lb button{background:var(--soft);color:var(--ink);border-color:var(--line)}
-[data-theme="dark"] .lb p{color:var(--muted)}
 /* ---- Interactive dashboard ---- */
 .dash{background:var(--soft)}
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
@@ -129,7 +73,7 @@ figure img{cursor:zoom-in}
 </style>
 </head>
 <body>
-<header class="wrap"><a class="brand" href="#home">MOHIT AVHAD<span>.</span></a><nav><a href="#dashboard">Dashboard</a><a href="#work">Case studies</a><a href="#skills">Skills</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#contact">Contact</a></nav><button id="themeToggle" class="theme-switch" aria-label="Toggle dark mode" aria-pressed="false"></button></header>
+<header class="wrap"><a class="brand" href="#home">MOHIT AVHAD<span>.</span></a><nav><a href="#dashboard">Dashboard</a><a href="#work">Case studies</a><a href="#skills">Skills</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#contact">Contact</a></nav></header>
 <main>
 <section class="wrap hero" id="home">
 <div><div class="eyebrow">Meta Ads · Paid Social · Lead Generation</div><h1>Turning campaign data into <em>business action.</em></h1>
@@ -527,25 +471,6 @@ function draw(){
 function shade(hex,i){var n=parseInt(hex.slice(1),16),r=n>>16,g=n>>8&255,b=n&255,t=Math.min(.65,i*.14);function m(x){return Math.round(x+(255-x)*t)}return 'rgb('+m(r)+','+m(g)+','+m(b)+')'}
 draw();
 
-/* ===== DARK MODE TOGGLE ===== */
-(function(){
-  var toggle=document.getElementById('themeToggle');
-  var html=document.documentElement;
-  var saved=localStorage.getItem('theme');
-  var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
-  var isDark=saved?saved==='dark':prefersDark;
-  function apply(dark){
-    html.setAttribute('data-theme',dark?'dark':'light');
-    toggle.setAttribute('aria-pressed',dark?'true':'false');
-    toggle.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
-    localStorage.setItem('theme',dark?'dark':'light');
-    if(bar)bar.update();if(share)share.update();
-    if(typeof Chart!=='undefined'){Chart.instances.forEach(function(c){c.update()})}
-  }
-  apply(isDark);
-  toggle.onclick=function(){apply(html.getAttribute('data-theme')!=='dark')};
-})();
-
 /* ===== ANIMATED COUNTERS ON SCROLL ===== */
 (function(){
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -642,7 +567,6 @@ draw();
       ringObserver.observe(ringsContainer);
     }
   }
-})();
 })();
 </script>
 </body></html>
