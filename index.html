@@ -414,10 +414,16 @@ Chart.defaults.font.family='Inter,system-ui,-apple-system,"Segoe UI",sans-serif'
 Chart.defaults.animation=reduce?false:{duration:500};
 var grid={color:'#e9edf1'};
 
+/* Data labels plugin for Chart.js */
+var dataLabelOpts={color:'#17212b',font:{weight:'600',size:11},formatter:function(v){return v.toLocaleString('en-IN')}};
+
+/* Data labels plugin for Chart.js */
+var dataLabelOpts={color:'#17212b',font:{weight:'600',size:11},formatter:function(v){return v.toLocaleString('en-IN')}};
+
 /* 1. Cost per result by client */
 var cl=D.filter(function(d){return d.wcost!==null}).sort(function(a,b){return a.wcost-b.wcost});
 new Chart(document.getElementById('chClient'),{type:'bar',data:{labels:cl.map(function(d){return d.name}),datasets:[{data:cl.map(function(d){return +d.wcost.toFixed(2)}),backgroundColor:cl.map(function(d){return d.type==='lead'?'#b45309':'#2457a6'}),borderRadius:3}]},
-options:{indexAxis:'y',maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){var d=cl[c.dataIndex];return inr(d.wcost)+' per '+(d.type==='lead'?'lead':'conversation')},afterLabel:function(c){var d=cl[c.dataIndex];return d.results+' results · '+inr(d.spend)+' spend'}}}},scales:{x:{grid:grid,ticks:{callback:function(v){return '₹'+v}}},y:{grid:{display:false}}}}});
+options:{indexAxis:'y',maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',offset:4,formatter:function(v){return '₹'+v.toLocaleString('en-IN')}},tooltip:{callbacks:{label:function(c){var d=cl[c.dataIndex];return inr(d.wcost)+' per '+(d.type==='lead'?'lead':'conversation')},afterLabel:function(c){var d=cl[c.dataIndex];return d.results+' results · '+inr(d.spend)+' spend'}}}},scales:{x:{grid:grid,ticks:{callback:function(v){return '₹'+v}}},y:{grid:{display:false}}}}});
 
 /* 2. Scatter */
 new Chart(document.getElementById('chScatter'),{type:'scatter',data:{datasets:D.map(function(d){return{label:d.name+(d.type==='lead'?' (leads)':''),backgroundColor:d.color,pointRadius:5,pointHoverRadius:7,data:d.camps.filter(function(c){return c.s!==null}).map(function(c){return{x:c.s,y:c.r,n:c.n}})}})},
@@ -450,14 +456,14 @@ function draw(){
  document.getElementById('barWrap').style.height=Math.max(260,vis.length*30+60)+'px';
  if(bar)bar.destroy();
  bar=new Chart(document.getElementById('chBar'),{type:'bar',data:{labels:vis.map(function(x){return x.n}),datasets:[{data:vis.map(function(x){return x[key]}),backgroundColor:vis.map(function(x){return x.d.color}),borderRadius:3}]},
- options:{indexAxis:'y',maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){var x=vis[c.dataIndex];return LBL[S.metric].replace(' (₹)','')+': '+(S.metric==='results'?x.r:inr(x[key]))},afterLabel:function(c){var x=vis[c.dataIndex];return x.r+' results · '+(x.s===null?'spend included in total':inr(x.s))+(x.c===null?'':' · '+inr(x.c)+' each')}}}},scales:{x:{grid:grid,title:{display:true,text:LBL[S.metric]},ticks:{callback:function(v){return S.metric==='results'?v:'₹'+v.toLocaleString('en-IN')}}},y:{grid:{display:false},ticks:{autoSkip:false}}}}});
+ options:{indexAxis:'y',maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',offset:4,formatter:function(v){return S.metric==='results'?v.toLocaleString('en-IN'):'₹'+v.toLocaleString('en-IN')}},tooltip:{callbacks:{label:function(c){var x=vis[c.dataIndex];return LBL[S.metric].replace(' (₹)','')+': '+(S.metric==='results'?x.r:inr(x[key]))},afterLabel:function(c){var x=vis[c.dataIndex];return x.r+' results · '+(x.s===null?'spend included in total':inr(x.s))+(x.c===null?'':' · '+inr(x.c)+' each')}}}},scales:{x:{grid:grid,title:{display:true,text:LBL[S.metric]},ticks:{callback:function(v){return S.metric==='results'?v:'₹'+v.toLocaleString('en-IN')}}},y:{grid:{display:false},ticks:{autoSkip:false}}}}});
  /* share */
  var sk=S.metric==='spend'?'s':'r';
  var items=all?D.map(function(d){return{n:d.name,v:sk==='s'?d.spend:d.results,color:d.color}}):rows.filter(function(x){return x[sk]}).map(function(x,i){return{n:x.n,v:x[sk],color:shade(x.d.color,i)}});
  var tot=items.reduce(function(a,x){return a+x.v},0);
  if(share)share.destroy();
  share=new Chart(document.getElementById('chShare'),{type:'doughnut',data:{labels:items.map(function(x){return x.n}),datasets:[{data:items.map(function(x){return x.v}),backgroundColor:items.map(function(x){return x.color}),borderColor:'#fff',borderWidth:2}]},
- options:{maintainAspectRatio:false,cutout:'58%',plugins:{title:{display:true,text:'Share of '+(sk==='s'?'spend':'results'),color:'#17212b',font:{weight:'700',size:13}},legend:{position:'bottom',labels:{boxWidth:9,boxHeight:9,font:{size:11}}},tooltip:{callbacks:{label:function(c){var v=c.raw;return c.label+': '+(sk==='s'?inr(v):v)+' ('+(v/tot*100).toFixed(1)+'%)'}}}}}});
+ options:{maintainAspectRatio:false,cutout:'58%',plugins:{title:{display:true,text:'Share of '+(sk==='s'?'spend':'results'),color:'#17212b',font:{weight:'700',size:13}},legend:{position:'bottom',labels:{boxWidth:9,boxHeight:9,font:{size:11}}},datalabels:{formatter:function(v,ctx){return (v/tot*100).toFixed(1)+'%'},color:'#17212b',font:{weight:'600',size:11}},tooltip:{callbacks:{label:function(c){var v=c.raw;return c.label+': '+(sk==='s'?inr(v):v)+' ('+(v/tot*100).toFixed(1)+'%)'}}}}}});
   requestAnimationFrame(function(){bar.resize();share.resize()});
  document.getElementById('exTable').innerHTML='<table><thead><tr><th>Campaign</th><th>Results</th><th>Spend</th><th>Cost / result</th></tr></thead><tbody>'+
   rows.slice().sort(function(a,b){return b.r-a.r}).map(function(x){
