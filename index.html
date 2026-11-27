@@ -352,7 +352,7 @@ figure img{cursor:zoom-in}
 
 <section class="contact" id="contact"><div class="wrap"><div class="eyebrow">Let's connect</div><h2>Have a role or campaign in mind?</h2><p>I'm interested in Meta Ads, media buying and performance marketing opportunities.</p><p>Email: <a href="mailto:avhadmohitvishnu@gmail.com">avhadmohitvishnu@gmail.com</a></p><p>WhatsApp (India): <a href="https://wa.me/917666812933" target="_blank" rel="noreferrer">+91 76668 12933</a> &nbsp;·&nbsp; WhatsApp (Latvia): <a href="https://wa.me/37129332457" target="_blank" rel="noreferrer">+371 2933 2457</a></p><div class="actions"><a class="btn primary" href="mailto:avhadmohitvishnu@gmail.com">Email me</a><a class="btn" href="https://wa.me/917666812933" target="_blank" rel="noreferrer">WhatsApp (India) ↗</a><a class="btn" href="https://wa.me/37129332457" target="_blank" rel="noreferrer">WhatsApp (Latvia) ↗</a><a class="btn" href="https://www.linkedin.com/in/mohit-avhad/" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a></div></div></section>
 </main>
-<footer><div class="wrap foot"><span>© 2026 Mohit Avhad · Meta Ads Portfolio</span><span>Campaign evidence and reported outcomes presented transparently.</span></div></footer>
+<footer><div class="wrap foot"><span>© 2026 Mohit Avhad · Meta Ads Portfolio</span><span>Campaign evidence and reported outcomes presented transparently.</span><span id="visitCounter" style="margin-left:auto;padding-left:20px;border-left:1px solid var(--line);color:var(--muted);font-size:12px">Page views: <span id="visitCount">—</span></span></div></footer>
 <script src="chart.umd.js"></script>
 <script>
 (function(){
@@ -576,6 +576,16 @@ draw();
   var dashSec=document.querySelector('#dashboard');
   dashSec.parentNode.insertBefore(funnelContainer,dashSec.nextSibling);
   renderFunnel(funnelData[0]);
+})();
+
+/* Visit counter */
+(function(){
+  var el=document.getElementById('visitCount');
+  if(!el)return;
+  fetch('https://api.countapi.xyz/hit/mohitavhad-portfolio/visits')
+    .then(function(r){return r.json()})
+    .then(function(d){el.textContent=d.value.toLocaleString()})
+    .catch(function(){el.textContent='—'});
 })();
 </script>
 </body></html>
