@@ -608,7 +608,7 @@ function sync(box,key,val){[].forEach.call(box.children,function(x){x.setAttribu
 var LBL={cost:'Cost per result (₹)',results:'Results',spend:'Spend (₹)'};
 function draw(){
  var all=S.client==='all';
- var rows=[];(all?D:D.filter(function(d){return d.id===S.client})).forEach(function(d){d.camps.forEach(function(c){rows.push({n:(all?d.name+': ':'')+c.n,r:c.r,s:c.s,c:c.c,d:d})})});
+ var rows=[];(all?D:D.filter(function(d){return d.id===S.client})).forEach(function(d){d.camps.forEach(function(c){rows.push({n:(all?d.name+': ':'')+c.n,r:c.r,s:c.s,c:c.c,d:d,type:d.type})})});
  var key={cost:'c',results:'r',spend:'s'}[S.metric];
  var vis=rows.filter(function(x){return x[key]!==null&&x[key]!==undefined});
  var skipped=rows.length-vis.length;
@@ -618,10 +618,28 @@ function draw(){
  var sp=sel.reduce(function(a,d){return a+d.spend},0),re=sel.reduce(function(a,d){return a+d.results},0);
  var ok=sel.every(function(d){return d.wcost!==null})&&sel.every(function(d){return d.type===sel[0].type});
  var best=rows.filter(function(x){return x.c!==null&&x.r>=5}).sort(function(a,b){return a.c-b.c})[0];
- document.getElementById('mini').innerHTML=
-  '<div><small>Spend</small><b>'+inr(sp)+'</b></div><div><small>Results</small><b>'+re.toLocaleString('en-IN')+'</b></div>'+
-  '<div><small>Weighted cost / result</small><b>'+(ok?inr(sp/re):'n/a')+'</b></div>'+
-  '<div><small>Lowest cost (5+ results)</small><b>'+(best?inr(best.c):'n/a')+'</b></div>';
+ /* aggregate by result type when all */
+ var byType={};
+ if(all){
+   sel.forEach(function(d){
+     var t=d.type;
+     if(!byType[t])byType[t]={spend:0,results:0,name:t==='msg'?'WhatsApp conversations':t==='lead'?'Instant-form leads':'Post engagements'};
+     byType[t].spend+=d.spend;
+     byType[t].results+=d.results;
+   });
+ }
+ var miniHtml='<div><small>Total spend</small><b>'+inr(sp)+'</b></div>';
+ if(all){
+   Object.values(byType).forEach(function(b){
+     miniHtml+='<div><small>'+b.name+'</small><b>'+b.results.toLocaleString('en-IN')+'</b></div>';
+   });
+   miniHtml+='<div><small>Weighted cost / result</small><b>'+Object.values(byType).map(function(b){return b.name+': '+inr(b.spend/b.results)}).join(' · ')+'</b></div>';
+ }else{
+   miniHtml+='<div><small>Results</small><b>'+re.toLocaleString('en-IN')+'</b></div>'+
+     '<div><small>Weighted cost / result</small><b>'+(ok?inr(sp/re):'n/a')+'</b></div>';
+ }
+ miniHtml+='<div><small>Lowest cost (5+ results)</small><b>'+(best?inr(best.c):'n/a')+'</b></div>';
+ document.getElementById('mini').innerHTML=miniHtml;
  /* bar */
  document.getElementById('barWrap').style.height=Math.max(260,vis.length*30+60)+'px';
  if(bar)bar.destroy();
