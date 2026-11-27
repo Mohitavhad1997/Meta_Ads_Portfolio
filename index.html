@@ -145,8 +145,8 @@ figcaption{padding:14px 16px;font-size:13px;color:var(--muted);background:var(--
 .contact p{color:rgba(255,255,255,.75);font-size:16.5px;line-height:1.65}
 .contact a{color:var(--blue3);transition:color var(--transition)}
 .contact a:hover{color:var(--gold)}
-.contact .btn{border-color:rgba(255,255,255,.3);color:white}
-.contact .btn:hover{border-color:var(--gold);background:rgba(255,255,255,.05)}
+.contact .btn{background:transparent;border-color:rgba(255,255,255,.4);color:white}
+.contact .btn:hover{border-color:var(--gold);background:rgba(255,255,255,.1)}
 .contact .btn.primary{background:white;color:var(--ink);border-color:white}
 .contact .btn.primary:hover{background:var(--gold2);color:var(--ink);border-color:var(--gold)}
 
@@ -602,7 +602,7 @@ options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{bo
 /* 3. Explorer */
 var S={client:'ashta',metric:'cost'},bar,share;
 var chips=document.getElementById('clientChips');
-[{id:'all',name:'All clients'}].concat(D).forEach(function(d){var b=document.createElement('button');b.textContent=d.name;b.dataset.id=d.id;b.setAttribute('aria-pressed',d.id===S.client);b.onclick=function(){S.client=d.id;sync(chips,'id',d.id);draw()};chips.appendChild(b)});
+D.forEach(function(d){var b=document.createElement('button');b.textContent=d.name;b.dataset.id=d.id;b.setAttribute('aria-pressed',d.id===S.client);b.onclick=function(){S.client=d.id;sync(chips,'id',d.id);draw()};chips.appendChild(b)});
 document.querySelectorAll('#metricTog button').forEach(function(b){b.onclick=function(){S.metric=b.dataset.m;sync(document.getElementById('metricTog'),'m',S.metric);draw()}});
 function sync(box,key,val){[].forEach.call(box.children,function(x){x.setAttribute('aria-pressed',x.dataset[key]===val)})}
 var LBL={cost:'Cost per result (₹)',results:'Results',spend:'Spend (₹)'};
